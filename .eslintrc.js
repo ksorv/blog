@@ -35,7 +35,9 @@ module.exports = {
       {
         usePrettierrc: true
       }
-    ]
+    ],
+    // had to disable it, as i dont want to include server side deps in client
+    'import/no-extraneous-dependencies': 'off'
   },
   settings: {
     'import/resolver': {
