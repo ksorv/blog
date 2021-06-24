@@ -1,42 +1,4 @@
-module.exports = {
-  future: {
-    webpack5: true,
-    strictPostcssConfiguration: true
-  },
-  reactStrictMode: true,
-  experimental: {
-    turboMode: true,
-    eslint: true
-  },
-  images: {
-    domains: [
-      'i.scdn.co', // Spotify Album Art
-      'pbs.twimg.com' // Twitter Profile Picture
-    ]
-  },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: securityHeaders
-      }
-    ];
-  },
-  webpack: (config, { dev, isServer }) => {
-    if (isServer) {
-      require('./scripts/generate-sitemap');
-      require('./scripts/generate-rss');
-    }
-
-    // Replace React with Preact only in client production build
-    if (!dev && !isServer) {
-      Object.assign(config.resolve.alias, {
-      });
-    }
-
-    return config;
-  }
-};
+/* eslint-disable global-require */
 
 // https://securityheaders.com
 const ContentSecurityPolicy = `
@@ -88,3 +50,42 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()'
   }
 ];
+
+module.exports = {
+  future: {
+    webpack5: true,
+    strictPostcssConfiguration: true
+  },
+  reactStrictMode: true,
+  experimental: {
+    turboMode: true,
+    eslint: true
+  },
+  images: {
+    domains: [
+      'i.scdn.co', // Spotify Album Art
+      'pbs.twimg.com' // Twitter Profile Picture
+    ]
+  },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: securityHeaders
+      }
+    ];
+  },
+  webpack: (config, { dev, isServer }) => {
+    if (isServer) {
+      require('./scripts/generate-sitemap');
+      require('./scripts/generate-rss');
+    }
+
+    // Replace React with Preact only in client production build
+    if (!dev && !isServer) {
+      Object.assign(config.resolve.alias, {});
+    }
+
+    return config;
+  }
+};

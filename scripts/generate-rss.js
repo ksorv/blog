@@ -1,5 +1,7 @@
 const { promises: fs } = require('fs');
 const path = require('path');
+// used on server side
+// eslint-disable-next-line import/no-extraneous-dependencies
 const RSS = require('rss');
 const matter = require('gray-matter');
 
@@ -21,7 +23,7 @@ async function generate() {
 
       feed.item({
         title: frontmatter.data.title,
-        url: 'https://sauravkhdoolia.com/blog/' + name.replace(/\.mdx?/, ''),
+        url: `https://sauravkhdoolia.com/blog/${name.replace(/\.mdx?/, '')}`,
         date: frontmatter.data.publishedAt,
         description: frontmatter.data.summary
       });

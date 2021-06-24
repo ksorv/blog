@@ -17,7 +17,22 @@
     "dev": "next",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "lint:js": "eslint . --ext .js,.jsx",
+    "lint:js:fix": "npm run lint:js -- --fix"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix --quiet"
+    ],
+    "*.css": [
+      "stylelint --syntax css --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "@mdx-js/react": "^1.6.22",
@@ -56,11 +71,14 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "globby": "11.0.3",
+    "husky": "^6.0.0",
     "jsdoc": "^3.6.7",
-    "next-remote-watch": "^1.0.0",
+    "lint-staged": "^11.0.0",
     "prettier": "2.3.0",
-    "rehype": "^11.0.0",
     "rss": "1.2.2",
+    "next-remote-watch": "^1.0.0",
+    "rehype": "^11.0.0",
+    "stylelint": "^13.13.1",
     "tailwindcss": "^2.2.4"
   }
 }

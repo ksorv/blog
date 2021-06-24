@@ -4,23 +4,23 @@ import Button from '../components/Button';
 export default {
   title: 'Components/Button',
   component: Button,
-  argTypes: { onClick: { action: 'clicked' } },
+  argTypes: { onClick: { action: 'clicked' } }
 };
 
-const Template = args => <Button {...args}>Button</Button>;
+const Template = (args) => <Button {...args}>Button</Button>;
 
 export const Primary = Template.bind({});
 Primary.args = {
   onClick: {
-    action: 'clicked',
+    action: 'clicked'
   },
-  loading: false,
+  loading: false
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   onClick: {
-    action: 'clicked',
+    action: 'clicked'
   },
-  loading: true,
+  loading: true
 };

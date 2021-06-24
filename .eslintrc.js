@@ -6,12 +6,12 @@ module.exports = {
     browser: true
   },
   parserOptions: {
-    ecmaVersion: 8
+    ecmaVersion: 2018
   }, // to enable features such as async/await
   ignorePatterns: ['node_modules/*', '.next/*', '.out/*'], // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
   extends: [
-    'next',
-    'next/core-web-vitals',
+    // 'next',
+    // 'next/core-web-vitals',
     'airbnb',
     'plugin:prettier/recommended'
   ],
@@ -23,6 +23,7 @@ module.exports = {
         extensions: ['.js', '.jsx']
       }
     ],
+    'react/button-has-type': 'off',
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/jsx-props-no-spreading': 'off',

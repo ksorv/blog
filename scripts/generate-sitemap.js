@@ -1,5 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const fs = require('fs');
 
+// only being used in server side, so dont really need then in deps
 const globby = require('globby');
 const prettier = require('prettier');
 
@@ -11,7 +13,7 @@ const prettier = require('prettier');
     '!data/*.mdx',
     '!pages/_*.js',
     '!pages/api',
-    '!pages/404.js',
+    '!pages/404.js'
   ]);
 
   const sitemap = `
