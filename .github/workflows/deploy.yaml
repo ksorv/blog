@@ -8,7 +8,7 @@ jobs:
       - uses: amondnet/vercel-action@v20
 
       - uses: ./
-        id: Pull Request Actions
+        id: pull-request-actions
         if: github.event_name == 'pull_request_target'
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
@@ -17,7 +17,7 @@ jobs:
           vercel-org-id: ${{ secrets.ORG_ID}}  #Required
           vercel-project-id: ${{ secrets.PROJECT_ID}} #Required 
       - uses: ./
-        id: Commit Actions
+        id: commit-actions
         if: github.event_name == 'push'
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
