@@ -1,4 +1,4 @@
-name: deploy website
+name: Vercel Bot
 on: [pull_request]
 jobs:
   deploy:
