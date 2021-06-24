@@ -1,6 +1,6 @@
 module.exports = {
   mode: 'jit',
-  purge: ['./pages/**/*.js', './components/**/*.js', './layouts/**/*.js'],
+  purge: ['./pages/**/*.jsx', './components/**/*.jsx', './layouts/**/*.jsx'],
   darkMode: 'class',
   theme: {
     extend: {
