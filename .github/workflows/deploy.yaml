@@ -8,7 +8,7 @@ jobs:
       - uses: amondnet/vercel-action@v20
 
       - uses: ./
-        id: vercel-action-staging
+        id: Pull Request Actions
         if: github.event_name == 'pull_request_target'
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
@@ -17,7 +17,7 @@ jobs:
           vercel-org-id: ${{ secrets.ORG_ID}}  #Required
           vercel-project-id: ${{ secrets.PROJECT_ID}} #Required 
       - uses: ./
-        id: vercel-action-production
+        id: Commit Actions
         if: github.event_name == 'push'
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Required
@@ -25,7 +25,6 @@ jobs:
           vercel-args: '--prod' #Optional
           vercel-org-id: ${{ secrets.ORG_ID}}  #Required
           vercel-project-id: ${{ secrets.PROJECT_ID}} #Required 
-          vercel-args: '--prod '
           alias-domains: |
             next.sauravkhdoolia.com
             sauravkhdoolia.com
