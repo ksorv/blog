@@ -9,7 +9,11 @@ export default function NotFound() {
       <p className="text-gray-600 dark:text-gray-400 mb-4">
         So nice to see you here...
       </p>
-      <Link href="/">Wanna Return Home?</Link>
+      <Link href="/" prefetch={false}>
+        <button className="bg-transparent focus:outline-none text-purple-500 hover:text-purple-600 hover:scale-105 hover:border-purple-500 px-3 py-2 border rounded">
+          Wanna Return Home?
+        </button>
+      </Link>
     </div>
   );
 }
