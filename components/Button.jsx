@@ -1,5 +1,9 @@
 const Button = ({ children, onClick, type = 'button' }) => (
-  <button className="border rounded" type={type} onClick={onClick}>
+  <button
+    className="border rounded bg-purple-600"
+    type={type}
+    onClick={onClick}
+  >
     {children}
   </button>
 );
