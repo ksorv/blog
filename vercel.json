@@ -17,5 +17,8 @@
       "source": "/google",
       "destination": "https://google.com/"
     }
-  ]
+  ],
+  "github" :{
+    "enabled": false
+  }
 }
