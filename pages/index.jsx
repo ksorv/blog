@@ -7,7 +7,7 @@ export default function Home() {
 
   const isLight = theme === 'light';
   return (
-    <div className="flex flex-col items-center justify-center w-full h-full relative">
+    <div className="flex flex-col items-center justify-center max-w-2xl h-full relative">
       <button
         className="absolute top-4 right-4 bg-gray-300 dark:bg-gray-600 p-2 rounded border border-transparent dark:hover:border-gray-500 hover:border-gray-400 cursor-pointer"
         onClick={() => setTheme(isLight ? 'dark' : 'light')}
