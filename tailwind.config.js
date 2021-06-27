@@ -4,6 +4,9 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      maxHeight: {
+        content: 'max-content'
+      },
       colors: {}
     }
   },

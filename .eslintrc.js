@@ -37,7 +37,10 @@ module.exports = {
       }
     ],
     // had to disable it, as i dont want to include server side deps in client
-    'import/no-extraneous-dependencies': 'off'
+    'import/no-extraneous-dependencies': 'off',
+
+    // Why would you ever need such a thing, lint is supposed to help not rule!
+    'import/prefer-default-export': 'off'
   },
   settings: {
     'import/resolver': {

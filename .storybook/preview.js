@@ -1,12 +1,21 @@
+import React from 'react';
+import { addDecorator } from '@storybook/react'
+import { RecoilRoot } from 'recoil';
 import '@storybook/addon-console';
 import "../styles/global.css"
 
-export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
-    },
-  },
-}
+const Providers = ({children}) => <> 
+  <div className="max-w-4xl max-h-content flex items-center justify-center">
+      <RecoilRoot>
+        {children}
+      </RecoilRoot>
+  </div>
+</>
+
+const AppDecorator = (storyFn) => {
+  return (
+    <Providers>{storyFn()}</Providers>
+  );
+};
+
+addDecorator(AppDecorator);
