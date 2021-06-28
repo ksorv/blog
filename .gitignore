@@ -3,6 +3,8 @@
 .vscode
 storybook-*
 .env
+/public/feed.xml
+/public/sitemap.xml
 
 
 # Logs
