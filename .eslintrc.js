@@ -10,9 +10,10 @@ module.exports = {
   }, // to enable features such as async/await
   ignorePatterns: ['node_modules/*', '.next/*', '.out/*'], // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
   extends: [
-    // 'next',
-    // 'next/core-web-vitals',
+    'next',
+    'next/core-web-vitals',
     'airbnb',
+    'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended'
   ],
   plugins: ['prettier'],

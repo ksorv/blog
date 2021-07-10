@@ -22,13 +22,6 @@
     "lint:js:fix": "npm run lint:js -- --fix",
     "prepare": "husky install"
   },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint --fix --quiet"
-    ],
-    "*.css": "stylelint --fix",
-    "*.js": "eslint --cache --fix"
-  },
   "dependencies": {
     "autoprefixer": "^10.2.6",
     "axios": "^0.21.1",
@@ -51,6 +44,9 @@
     "@storybook/addon-links": "^6.3.0",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/react": "^6.3.0",
+    "@types/node": "^14.14.32",
+    "@types/react": "^17.0.14",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
     "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.2.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -81,6 +77,7 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-prettier": "^1.2.0",
-    "tailwindcss": "^2.2.4"
+    "tailwindcss": "^2.2.4",
+    "typescript": "^4.3.5"
   }
 }
