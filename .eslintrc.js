@@ -5,23 +5,26 @@ module.exports = {
     es6: true,
     browser: true
   },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2018
+    ecmaVersion: 2018,
+    sourceType: 'module',
+    project: 'tsconfig.json'
   }, // to enable features such as async/await
   ignorePatterns: ['node_modules/*', '.next/*', '.out/*'], // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
   extends: [
     'next',
     'next/core-web-vitals',
-    'airbnb',
+    'airbnb-typescript',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended'
   ],
-  plugins: ['prettier'],
+  plugins: ['@typescript-eslint', 'prettier'],
   rules: {
     'react/jsx-filename-extension': [
       2,
       {
-        extensions: ['.js', '.jsx']
+        extensions: ['.tsx', '.jsx']
       }
     ],
     'react/button-has-type': 'off',
@@ -49,7 +52,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.jsx', '.css', '.mdx', '.js'],
+        extensions: ['.jsx', '.css', '.mdx', '.js', '.ts', '.tsx'],
         paths: ['.']
       }
     }

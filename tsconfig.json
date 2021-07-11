@@ -15,9 +15,15 @@
     "jsx": "preserve",
     "baseUrl": "."
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "files": [".eslintrc.js"],
+  "include": ["**/*"],
   "paths": {
-    "app/*": ["./*"]
+    "components/*": ["./components/*"],
+    "data/*": ["./data/*"],
+    "styles/*": ["./styles/*"],
+    "scripts/*": ["./scripts/*"],
+    "stores/*": ["./stores/*"],
+    "types/*": ["./types/*"]
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "public", ".next", ".husky"]
 }
