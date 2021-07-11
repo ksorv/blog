@@ -1,10 +1,12 @@
 import { MDXRemote } from 'next-mdx-remote';
-
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { FC } from 'react';
 import { getFiles, getFileBySlug } from 'lib/mdx';
 import BlogLayout from 'layouts/blog';
 import MDXComponents from 'components/MDXComponents';
+import { BlogPostProps } from 'types/blog';
 
-export default function Blog({ mdxSource, frontMatter }) {
+const Blog: FC<BlogPostProps> = ({ mdxSource, frontMatter }) => {
   return (
     <BlogLayout frontMatter={frontMatter}>
       <MDXRemote
@@ -15,9 +17,11 @@ export default function Blog({ mdxSource, frontMatter }) {
       />
     </BlogLayout>
   );
-}
+};
 
-export async function getStaticPaths() {
+export default Blog;
+
+export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getFiles('posts');
 
   return {
@@ -28,10 +32,10 @@ export async function getStaticPaths() {
     })),
     fallback: false
   };
-}
+};
 
-export async function getStaticProps({ params }) {
-  const post = await getFileBySlug('posts', params.slug);
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const post = await getFileBySlug('posts', params.slug as string);
 
   return { props: { ...post } };
-}
+};

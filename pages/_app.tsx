@@ -3,6 +3,8 @@ import 'styles/global.css';
 import { ThemeProvider } from 'next-themes';
 import { MDXProvider } from '@mdx-js/react';
 import { RecoilRoot } from 'recoil';
+import { AppProps } from 'next/app';
+import { FC } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import MDXComponents from 'components/MDXComponents';
 import Header from 'components/Header';
@@ -18,7 +20,7 @@ const queryClient = new QueryClient({
   }
 });
 
-export default function App({ Component, pageProps }) {
+const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <ThemeProvider attribute="class">
       <MDXProvider components={MDXComponents}>
@@ -34,4 +36,6 @@ export default function App({ Component, pageProps }) {
       </MDXProvider>
     </ThemeProvider>
   );
-}
+};
+
+export default App;

@@ -1,8 +1,11 @@
 import { getAllFilesFrontMatter } from 'lib/mdx';
 import Link from 'next/link';
+import { FC } from 'react';
+import { GetStaticProps } from 'next';
 import BlogPostCard from 'components/BlogPostCard';
+import { PostsFrontMatter } from 'types/blog';
 
-export default function Blog({ posts }) {
+const Blog: FC<{ posts: PostsFrontMatter }> = ({ posts }) => {
   return (
     <div className="max-w-2xl">
       {posts.map((frontMatter) => (
@@ -14,10 +17,12 @@ export default function Blog({ posts }) {
       ))}
     </div>
   );
-}
+};
 
-export async function getStaticProps() {
+export default Blog;
+
+export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllFilesFrontMatter('posts');
 
   return { props: { posts } };
-}
+};
