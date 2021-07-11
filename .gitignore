@@ -3,6 +3,9 @@
 .vscode
 storybook-*
 .env
+package-lock.json
+public/feed.xml
+public/sitemap.xml
 
 
 # Logs

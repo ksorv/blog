@@ -1,11 +1,19 @@
 module.exports = {
-  "presets": ["next/babel"],
-  "plugins": [
+  presets: ['next/babel'],
+  plugins: [
     [
-      "module-resolver",
+      'module-resolver',
       {
-        "app/*": ["./*"]
+        root: './',
+        alias: {
+          'components/*': ['./components/*'],
+          'data/*': ['./data/*'],
+          'styles/*': ['./styles/*'],
+          'scripts/*': ['./scripts/*'],
+          'stores/*': ['./stores/*'],
+          'types/*': ['./types/*']
+        }
       }
     ]
   ]
-}
+};

@@ -7,14 +7,16 @@ import mdxPrism from 'mdx-prism';
 import remarkCodeTitles from 'remark-code-titles';
 import remarkAutolinkHeadings from 'remark-autolink-headings';
 import remarkSlug from 'remark-slug';
+import { GetFileBySlug, GetFiles, GetAllFilesFrontMatter } from 'types/mdx';
+import { FrontMatter } from 'types/blog';
 
 const root = process.cwd();
 
-export async function getFiles(type) {
+export const getFiles: GetFiles = async (type) => {
   return fs.readdirSync(path.join(root, 'data', type));
-}
+};
 
-export async function getFileBySlug(type, slug) {
+export const getFileBySlug: GetFileBySlug = async (type, slug) => {
   const source = slug
     ? fs.readFileSync(path.join(root, 'data', type, `${slug}.mdx`), 'utf8')
     : fs.readFileSync(path.join(root, 'data', `${type}.mdx`), 'utf8');
@@ -25,12 +27,12 @@ export async function getFileBySlug(type, slug) {
       remarkPlugins: [
         remarkSlug,
         [
-          (remarkAutolinkHeadings,
+          remarkAutolinkHeadings,
           {
             linkProperties: {
               className: ['anchor']
             }
-          })
+          }
         ],
         remarkCodeTitles
       ],
@@ -47,12 +49,12 @@ export async function getFileBySlug(type, slug) {
       ...data
     }
   };
-}
+};
 
-export async function getAllFilesFrontMatter(type) {
+export const getAllFilesFrontMatter: GetAllFilesFrontMatter = async (type) => {
   const files = fs.readdirSync(path.join(root, 'data', type));
 
-  return files.reduce((allPosts, postSlug) => {
+  return files.reduce((allPosts: FrontMatter[], postSlug: string) => {
     const source = fs.readFileSync(
       path.join(root, 'data', type, postSlug),
       'utf8'
@@ -61,10 +63,10 @@ export async function getAllFilesFrontMatter(type) {
 
     return [
       {
-        ...data,
+        ...(data as FrontMatter),
         slug: postSlug.replace('.mdx', '')
       },
       ...allPosts
     ];
   }, []);
-}
+};

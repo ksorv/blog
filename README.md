@@ -1,3 +1,5 @@
 # [...World]
 
-[![Vercel Bot](https://github.com/ksorv/blog/actions/workflows/deploy.yaml/badge.svg?branch=main)](https://github.com/ksorv/blog/actions/workflows/deploy.yaml)
+## Notes
+
+- Redirects setup in vercel.json won't work locally, so some link might send you to 404 :)

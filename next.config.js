@@ -1,4 +1,5 @@
 /* eslint-disable global-require */
+// @ts-check
 
 // https://securityheaders.com
 const ContentSecurityPolicy = `
@@ -51,7 +52,10 @@ const securityHeaders = [
   }
 ];
 
-module.exports = {
+/**
+ * @type {import('next/dist/next-server/server/config').NextConfig}
+ * */
+const nextConfig = {
   future: {
     webpack5: true,
     strictPostcssConfiguration: true
@@ -61,12 +65,9 @@ module.exports = {
     turboMode: true,
     eslint: true
   },
-  images: {
-    domains: [
-      'i.scdn.co', // Spotify Album Art
-      'pbs.twimg.com' // Twitter Profile Picture
-    ]
-  },
+  // images: {
+  //   domains: []
+  // },
   async headers() {
     return [
       {
@@ -89,3 +90,5 @@ module.exports = {
     return config;
   }
 };
+
+module.exports = nextConfig;
