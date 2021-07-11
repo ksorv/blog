@@ -1,10 +1,12 @@
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { SetterOrUpdater, useRecoilState, useRecoilValue } from 'recoil';
 import { useTheme } from 'next-themes';
 import { Sun, Moon } from 'react-feather';
 import CustomLink from 'components/Link';
+import Link from 'next/link';
+import { FC } from 'react';
 import { showHeaderAtom } from '../stores/ui';
 
-const Header = () => {
+const Header: FC = () => {
   const showHeader = useRecoilValue(showHeaderAtom);
   const { resolvedTheme, setTheme } = useTheme();
 
@@ -13,7 +15,7 @@ const Header = () => {
   if (showHeader) {
     return (
       <header className="flex items-center justify-between w-full max-w-4xl mx-auto sticky top-0 p-4 header">
-        <a href="/">
+        <Link href="/" passHref>
           <div className="logo text-lg">
             <span className="text-purple-700 dark:text-gray-400 font-bold">
               Saurav
@@ -23,10 +25,10 @@ const Header = () => {
               Khdoolia
             </span>
           </div>
-        </a>
+        </Link>
         <div className="flex items-center justify-between">
-          <CustomLink href="/blog" content="Blog" />
-          <CustomLink href="/about" content="About" />
+          <CustomLink href="/blog">Blog</CustomLink>
+          <CustomLink href="/about">About</CustomLink>
           <button
             className="bg-gray-300 dark:bg-gray-600 p-2 rounded border border-transparent dark:hover:border-gray-500 hover:border-gray-400 cursor-pointer"
             onClick={() => setTheme(isLight ? 'dark' : 'light')}
@@ -41,7 +43,12 @@ const Header = () => {
   return <span />;
 };
 
-export const useHeader = () => {
+export type UseFooter = () => {
+  showHeader: boolean;
+  setShowHeader: SetterOrUpdater<boolean>;
+};
+
+export const useHeader: UseFooter = () => {
   const [showHeader, setShowHeader] = useRecoilState(showHeaderAtom);
 
   return { showHeader, setShowHeader };

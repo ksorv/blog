@@ -1,20 +1,27 @@
 import propTypes from 'prop-types';
 import { useQuery } from 'react-query';
 import format from 'date-fns/format';
+import { FC } from 'react';
+import { FrontMatter } from 'types/blog';
 
-const BlogPostCard = ({
+const BlogPostCard: FC<FrontMatter> = ({
   title,
   summary,
   writtenOn = null,
-  updatedOn,
   slug
 }) => {
-  const { data, isLoading, isError } = useQuery(`/views/${slug}`, {
+  const {
+    data = { total: 0 },
+    isLoading,
+    isError
+  } = useQuery<{ total: number }>(`/views/${slug}`, {
     staleTime: 3 * 60 * 1000,
     refetchOnWindowFocus: false
   });
 
-  const lastUpdatedOn = new Date(updatedOn || writtenOn);
+  const { total } = data;
+
+  const lastUpdatedOn = new Date(writtenOn);
 
   return (
     <div className="flex flex-col">
@@ -29,7 +36,7 @@ const BlogPostCard = ({
           </>
         )}
         <span className="text-xs font-light">
-          {isLoading || isError ? '--' : data.total}
+          {isLoading || isError ? '--' : total}
         </span>
       </div>
       <div className="text-sm font-normal">{summary}</div>
@@ -41,12 +48,7 @@ BlogPostCard.propTypes = {
   title: propTypes.string.isRequired,
   summary: propTypes.string.isRequired,
   writtenOn: propTypes.string.isRequired,
-  slug: propTypes.string.isRequired,
-  updatedOn: propTypes.string
-};
-
-BlogPostCard.defaultProps = {
-  updatedOn: undefined
+  slug: propTypes.string.isRequired
 };
 
 export default BlogPostCard;

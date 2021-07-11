@@ -1,7 +1,8 @@
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { FC } from 'react';
+import { SetterOrUpdater, useRecoilState, useRecoilValue } from 'recoil';
 import { showFooterAtom } from '../stores/ui';
 
-const Footer = () => {
+const Footer: FC = () => {
   const showFooter = useRecoilValue(showFooterAtom);
 
   if (showFooter) {
@@ -15,7 +16,12 @@ const Footer = () => {
   return <span />;
 };
 
-export const useFooter = () => {
+export type UseFooter = () => {
+  showFooter: boolean;
+  setShowFooter: SetterOrUpdater<boolean>;
+};
+
+export const useFooter: UseFooter = () => {
   const [showFooter, setShowFooter] = useRecoilState(showFooterAtom);
 
   return { showFooter, setShowFooter };
