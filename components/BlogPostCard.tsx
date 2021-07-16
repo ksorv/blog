@@ -1,45 +1,33 @@
 import propTypes from 'prop-types';
-import { useQuery } from 'react-query';
 import format from 'date-fns/format';
 import { FC } from 'react';
 import { FrontMatter } from 'types/blog';
+import Tags from './Tags';
 
 const BlogPostCard: FC<FrontMatter> = ({
   title,
   summary,
   writtenOn = null,
-  slug
+  tags
 }) => {
-  const {
-    data = { total: 0 },
-    isLoading,
-    isError
-  } = useQuery<{ total: number }>(`/views/${slug}`, {
-    staleTime: 3 * 60 * 1000,
-    refetchOnWindowFocus: false
-  });
-
-  const { total } = data;
-
   const lastUpdatedOn = new Date(writtenOn);
 
   return (
-    <div className="flex flex-col">
-      <div className="text-base font-bold text-black">{title}</div>
-      <div className="flex items-center justify-start">
+    <div className="flex flex-col p-4 my-8 border-2 rounded-lg border-dotted border-purple-300 hover:border-purple-700 dark:border-purple-600 dark:hover:border-purple-300 relative blogPostCard">
+      <div className="text-4xl font-bold pb-1 capitalize text-black dark:text-white">
+        {title}
+      </div>
+      <div className="flex items-center justify-start pt-2 pb-3">
         {lastUpdatedOn && (
           <>
-            <span className="text-xs font-light">
-              Last Updated On: {format(lastUpdatedOn, 'MMM Do yyyy')}
+            <span className="text-md font-light">
+              On {format(lastUpdatedOn, 'MMM do yyyy')}
             </span>
-            <span className="text-xs font-light">{' | '}</span>
           </>
         )}
-        <span className="text-xs font-light">
-          {isLoading || isError ? '--' : total}
-        </span>
+        <Tags tags={tags} />
       </div>
-      <div className="text-sm font-normal">{summary}</div>
+      <div className="text-base font-normal">{summary}</div>
     </div>
   );
 };
@@ -47,8 +35,7 @@ const BlogPostCard: FC<FrontMatter> = ({
 BlogPostCard.propTypes = {
   title: propTypes.string.isRequired,
   summary: propTypes.string.isRequired,
-  writtenOn: propTypes.string.isRequired,
-  slug: propTypes.string.isRequired
+  writtenOn: propTypes.string.isRequired
 };
 
 export default BlogPostCard;

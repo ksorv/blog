@@ -27,7 +27,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
         <QueryClientProvider client={queryClient}>
           <RecoilRoot>
             <Header />
-            <main className="w-full max-w-2xl mx-auto main-content">
+            <main className="w-full max-w-2xl mx-auto main-content p-6">
               <Component {...pageProps} />
             </main>
             <Footer />
