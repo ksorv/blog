@@ -12,6 +12,7 @@ export type FrontMatter = {
   summary: string;
   writtenOn: string;
   slug: string;
+  tags: [string];
 };
 
 export type BlogPostProps = {
