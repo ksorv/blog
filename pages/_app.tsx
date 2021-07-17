@@ -5,6 +5,8 @@ import { MDXProvider } from '@mdx-js/react';
 import { RecoilRoot } from 'recoil';
 import { AppProps } from 'next/app';
 import { FC } from 'react';
+import { ChakraProvider, Container } from '@chakra-ui/react';
+import { theme } from 'styles/themes';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import MDXComponents from 'components/MDXComponents';
 import Header from 'components/Header';
@@ -23,17 +25,25 @@ const queryClient = new QueryClient({
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <ThemeProvider attribute="class">
-      <MDXProvider components={MDXComponents}>
-        <QueryClientProvider client={queryClient}>
-          <RecoilRoot>
-            <Header />
-            <main className="w-full max-w-2xl mx-auto main-content p-6">
-              <Component {...pageProps} />
-            </main>
-            <Footer />
-          </RecoilRoot>
-        </QueryClientProvider>
-      </MDXProvider>
+      <ChakraProvider theme={theme} resetCSS={false}>
+        <MDXProvider components={MDXComponents}>
+          <QueryClientProvider client={queryClient}>
+            <RecoilRoot>
+              <Header />
+              <Container
+                as="main"
+                width="full"
+                maxWidth="2xl"
+                marginX="auto"
+                padding={6}
+              >
+                <Component {...pageProps} />
+              </Container>
+              <Footer />
+            </RecoilRoot>
+          </QueryClientProvider>
+        </MDXProvider>
+      </ChakraProvider>
     </ThemeProvider>
   );
 };

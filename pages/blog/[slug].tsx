@@ -5,17 +5,21 @@ import { getFiles, getFileBySlug } from 'lib/mdx';
 import BlogLayout from 'layouts/blog';
 import MDXComponents from 'components/MDXComponents';
 import { BlogPostProps } from 'types/blog';
+import { Meta } from 'components/Meta';
 
 const Blog: FC<BlogPostProps> = ({ mdxSource, frontMatter }) => {
   return (
-    <BlogLayout frontMatter={frontMatter}>
-      <MDXRemote
-        {...mdxSource}
-        components={{
-          ...MDXComponents
-        }}
-      />
-    </BlogLayout>
+    <>
+      <Meta title={frontMatter.title} />
+      <BlogLayout frontMatter={frontMatter}>
+        <MDXRemote
+          {...mdxSource}
+          components={{
+            ...MDXComponents
+          }}
+        />
+      </BlogLayout>
+    </>
   );
 };
 

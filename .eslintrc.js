@@ -33,7 +33,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.jsx', '.css', '.mdx', '.js', '.ts', '.tsx'],
+        extensions: ['.jsx', '.css', '.mdx', '.js', '.ts', '.tsx', '.svg'],
         paths: ['.']
       }
     }
@@ -88,7 +88,7 @@ module.exports = {
       settings: {
         'import/resolver': {
           node: {
-            extensions: ['.jsx', '.css', '.mdx', '.js', '.ts', '.tsx'],
+            extensions: ['.jsx', '.css', '.mdx', '.js', '.ts', '.tsx', '.svg'],
             paths: ['.']
           }
         }

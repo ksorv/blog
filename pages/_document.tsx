@@ -1,4 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { ColorModeScript } from '@chakra-ui/react';
+import { theme } from 'styles/themes';
 
 class MyDocument extends Document {
   render() {
@@ -12,9 +14,11 @@ class MyDocument extends Document {
             type="font/woff2"
             crossOrigin="anonymous"
           />
+          <link rel="icon" href="./favicon.ico" />
         </Head>
-        <body className="w-full h-full bg-white dark:bg-gray-800 text-black dark:text-white">
+        <body className="w-full h-full">
           <Main />
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <NextScript />
         </body>
       </Html>

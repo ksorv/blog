@@ -1,7 +1,4 @@
 @import url(./blog.css);
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @font-face {
   font-family: 'Inter';
@@ -41,54 +38,6 @@ body,
   grid-area: main;
 }
 
-h1 {
-  @apply text-4xl;
-  @apply my-2;
-  @apply font-extrabold;
-}
-
-h2 {
-  @apply text-3xl;
-  @apply my-2;
-  @apply font-bold;
-}
-
-h3 {
-  @apply text-2xl;
-  @apply my-2;
-  @apply font-bold;
-}
-
-h4 {
-  @apply text-xl;
-  @apply my-2;
-  @apply font-bold;
-}
-
-h5 {
-  @apply text-lg;
-  @apply my-2;
-  @apply font-bold;
-}
-
-h6 {
-  @apply text-base;
-  @apply my-2;
-  @apply font-bold;
-}
-
-blockquote,
-dl,
-dd,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-figure,
-p,
-pre {
-  margin: revert;
+.logo path {
+  fill: darkviolet;
 }

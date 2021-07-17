@@ -82,6 +82,10 @@ const nextConfig = {
       require('./scripts/generate-sitemap');
       require('./scripts/generate-rss');
     }
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack']
+    });
 
     // Replace React with Preact only in client production build
     if (!dev && !isServer) {

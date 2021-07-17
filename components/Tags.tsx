@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import { Button, Link } from '@chakra-ui/react';
+import NextLink from 'next/link';
 import { FC } from 'react';
 
 const Tags: FC<{ tags: [string] }> = ({ tags }) => (
@@ -6,11 +7,9 @@ const Tags: FC<{ tags: [string] }> = ({ tags }) => (
     {Array.isArray(tags) ? (
       tags.map((tag) => {
         return (
-          <Link key={tag} href={`tags/${tag}`}>
-            <a className="py-1 px-3 capitalize mx-2 text-gray-300 rounded border border-purple-700 bg-purple-600 hover:border-white dark:hover:border-black">
-              {tag}
-            </a>
-          </Link>
+          <NextLink key={tag} href={`tags/${tag}`}>
+            <Button variant="solid">{tag}</Button>
+          </NextLink>
         );
       })
     ) : (

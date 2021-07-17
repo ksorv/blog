@@ -1,12 +1,25 @@
-import Link from 'next/link';
+import NextLink from 'next/link';
+import { Link } from '@chakra-ui/react';
 import { FC } from 'react';
+import { useRouter } from 'next/dist/client/router';
 
-const CustomLink: FC<{ href: string }> = ({ href, children }) => (
-  <Link href={href}>
-    <a className="block text-black dark:text-white hover:text-purple-100 hover:bg-purple-600 dark:hover:bg-purple-600 py-2 px-3 rounded mx-2">
-      {children}
-    </a>
-  </Link>
-);
+const CustomLink: FC<{ href: string; showActive?: boolean }> = ({
+  href,
+  children,
+  showActive = true
+}) => {
+  const router = useRouter();
+  const isActive = showActive && router.pathname === href;
+  return (
+    <NextLink href={href} passHref>
+      <Link
+        color={isActive ? 'green.600' : 'brand.400'}
+        textDecoration={isActive ? 'underline' : 'unset'}
+      >
+        {children}
+      </Link>
+    </NextLink>
+  );
+};
 
 export default CustomLink;

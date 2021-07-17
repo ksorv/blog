@@ -3,7 +3,6 @@ import matter from 'gray-matter';
 import path from 'path';
 import readingTime from 'reading-time';
 import { serialize } from 'next-mdx-remote/serialize';
-import mdxPrism from 'mdx-prism';
 import remarkCodeTitles from 'remark-code-titles';
 import remarkAutolinkHeadings from 'remark-autolink-headings';
 import remarkSlug from 'remark-slug';
@@ -35,8 +34,7 @@ export const getFileBySlug: GetFileBySlug = async (type, slug) => {
           }
         ],
         remarkCodeTitles
-      ],
-      rehypePlugins: [mdxPrism]
+      ]
     }
   });
 
