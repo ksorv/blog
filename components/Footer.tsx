@@ -1,4 +1,4 @@
-import { Container, Flex } from '@chakra-ui/react';
+import { Container, Flex, Slide } from '@chakra-ui/react';
 import { FC } from 'react';
 import { SetterOrUpdater, useRecoilState, useRecoilValue } from 'recoil';
 import Logo from 'images/fullLogo.svg';
@@ -12,7 +12,11 @@ const Footer: FC = () => {
     <Container
       width="full"
       maxWidth="full"
-      visibility={showFooter ? 'visible' : 'hidden'}
+      gridArea="footer"
+      opacity={showFooter ? 100 : 0}
+      transitionProperty="all"
+      transitionDuration="200ms"
+      transitionTimingFunction="ease-in"
     >
       <Flex
         width="4xl"

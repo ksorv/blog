@@ -14,16 +14,18 @@ const Header: FC = () => {
 
   return (
     <Container
-      visibility={showHeader ? 'visible' : 'hidden'}
       as="header"
-      style={{ backdropFilter: 'blur(8px' }}
+      opacity={showHeader ? 90 : 0}
+      style={{ backdropFilter: 'blur(8px)' }}
       zIndex={20}
       width="full"
       maxWidth="full"
       position="sticky"
       top={0}
       gridArea="header"
-      opacity={90}
+      transitionProperty="all"
+      transitionDuration="200ms"
+      transitionTimingFunction="ease-in"
       background={
         colorMode === 'light' ? 'whiteAlpha.800' : 'blackAlpha.800   '
       }
@@ -38,14 +40,6 @@ const Header: FC = () => {
           <a>
             <Logo className="logo" />
           </a>
-          {/* <Text
-              fontWeight="bold"
-              textColor="brand.600"
-              fontSize="2xl"
-              cursor="pointer"
-            >
-              Saurav Khdoolia
-            </Text> */}
         </Link>
         <Flex
           alignItems="center"

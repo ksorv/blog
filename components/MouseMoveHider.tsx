@@ -16,7 +16,7 @@ export const MouseMoveHider: FC = () => {
     mouseTimer = setTimeout(() => {
       setShowHeader(false);
       setShowFooter(false);
-    }, 1000);
+    }, 2000);
   };
 
   useEffect(() => {
