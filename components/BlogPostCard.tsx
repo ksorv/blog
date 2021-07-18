@@ -3,17 +3,23 @@ import format from 'date-fns/format';
 import { FC } from 'react';
 import { FrontMatter } from 'types/blog';
 import { Flex, Heading, Text, useColorMode } from '@chakra-ui/react';
+import { useQuery } from 'react-query';
 import Tags from './Tags';
 
 const BlogPostCard: FC<FrontMatter> = ({
   title,
   summary,
   date = null,
-  tags
+  tags,
+  slug
 }) => {
   const lastUpdatedOn = new Date(date);
   const { colorMode } = useColorMode();
   const isLight = colorMode === 'light';
+
+  const { data: { total = 0 } = {} } = useQuery<{ total: number }>(
+    `/views/${slug}`
+  );
 
   return (
     <Flex
@@ -54,7 +60,8 @@ const BlogPostCard: FC<FrontMatter> = ({
                 On {format(lastUpdatedOn, 'MMM do yyyy')}
               </span>
             </>
-          )}
+          )}{' '}
+          | {total} views
         </Text>
         <Tags tags={tags} />
       </Flex>

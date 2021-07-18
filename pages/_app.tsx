@@ -2,12 +2,12 @@ import { ThemeProvider } from 'next-themes';
 import { MDXProvider } from '@mdx-js/react';
 import { RecoilRoot } from 'recoil';
 import { AppProps } from 'next/app';
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { ChakraProvider, Container } from '@chakra-ui/react';
 import { theme } from 'styles/themes';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import MDXComponents from 'components/MDXComponents';
-import Header, { useHeader } from 'components/Header';
+import Header from 'components/Header';
 import Footer from 'components/Footer';
 import { Globals } from 'styles/themes/globals';
 import { MouseMoveHider } from 'components/MouseMoveHider';
@@ -27,8 +27,8 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
     <ThemeProvider attribute="class">
       <ChakraProvider theme={theme} resetCSS>
         <MDXProvider components={MDXComponents}>
-          <QueryClientProvider client={queryClient}>
-            <RecoilRoot>
+          <RecoilRoot>
+            <QueryClientProvider client={queryClient}>
               <Globals />
               <Header />
               <Container
@@ -43,8 +43,8 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
               </Container>
               <Footer />
               <MouseMoveHider />
-            </RecoilRoot>
-          </QueryClientProvider>
+            </QueryClientProvider>
+          </RecoilRoot>
         </MDXProvider>
       </ChakraProvider>
     </ThemeProvider>

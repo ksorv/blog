@@ -6,8 +6,11 @@ import BlogLayout from 'layouts/blog';
 import MDXComponents from 'components/MDXComponents';
 import { BlogPostProps } from 'types/blog';
 import { Meta } from 'components/Meta';
+import axios from 'axios';
 
 const Blog: FC<BlogPostProps> = ({ mdxSource, frontMatter }) => {
+  const data = axios.post(`/api/views/${frontMatter.slug}`);
+  console.log(data);
   return (
     <>
       <Meta title={frontMatter.title} />

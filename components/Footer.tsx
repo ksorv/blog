@@ -1,4 +1,4 @@
-import { Container, Flex, Slide } from '@chakra-ui/react';
+import { Container, Flex } from '@chakra-ui/react';
 import { FC } from 'react';
 import { SetterOrUpdater, useRecoilState, useRecoilValue } from 'recoil';
 import Logo from 'images/fullLogo.svg';

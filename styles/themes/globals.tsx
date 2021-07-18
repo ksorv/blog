@@ -4,8 +4,6 @@ import { FC } from 'react';
 export const Globals: FC = () => (
   <Global
     styles={`
-      @import url(./blog.css);
-
       @font-face {
         font-family: 'Inter';
         font-style: normal;
