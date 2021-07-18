@@ -25,6 +25,7 @@ const BlogPostCard: FC<FrontMatter> = ({
       borderColor={isLight ? 'purple.300' : 'purple.600'}
       borderRadius={8}
       position="relative"
+      cursor="pointer"
       _hover={{
         borderColor: isLight ? 'purple.700' : 'purple.300',
         _after: {
@@ -41,7 +42,11 @@ const BlogPostCard: FC<FrontMatter> = ({
     >
       {/* <div className="flex flex-col p-4 my-8 border-2 rounded-lg border-dotted border-purple-300 hover:border-purple-700 dark:border-purple-600 dark:hover:border-purple-300 relative blogPostCard"> */}
       <Heading size="lg">{title}</Heading>
-      <Flex alignItems="center" justifyContent="space-between">
+      <Flex
+        alignItems="center"
+        justifyContent="space-between"
+        marginBottom="8px"
+      >
         <Text>
           {lastUpdatedOn && (
             <>

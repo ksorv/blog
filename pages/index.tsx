@@ -1,3 +1,4 @@
+import { Button } from '@chakra-ui/react';
 import { Meta } from 'components/Meta';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -14,9 +15,9 @@ const Home: FC = () => {
           Thanks for checking me out :)
         </h4>
         <Link href="/twitter" prefetch={false} passHref>
-          <button className="bg-transparent focus:outline-none text-purple-500 hover:text-purple-600 hover:scale-105 hover:border-purple-500 px-3 py-2 border rounded">
+          <Button variant="ghost" size="xl" padding="4px">
             Check Mate
-          </button>
+          </Button>
         </Link>
       </div>
     </>

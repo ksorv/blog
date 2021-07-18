@@ -35,6 +35,10 @@ export const Globals: FC = () => (
       .logo path {
         fill: darkviolet;
       }
+
+      .prism-code {
+        overflow-x: auto;
+      }
     `}
   />
 );

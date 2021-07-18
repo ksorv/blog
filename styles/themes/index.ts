@@ -28,6 +28,15 @@ export const theme = extendTheme(
           fontFamily: 'body',
           bg: mode('white', 'gray.800')(props),
           lineHeight: 'base'
+        },
+        h2: {
+          fontFamoly: 'heading',
+          marginY: '8px',
+          fontSize: '2xl'
+        },
+        p: {
+          marginY: '8px',
+          fontSize: 'md'
         }
       })
     }

@@ -12,31 +12,33 @@ const Header: FC = () => {
 
   const { colorMode, toggleColorMode } = useColorMode();
 
-  if (showHeader) {
-    return (
-      <Container
-        as="header"
-        style={{ backdropFilter: 'blur(8px' }}
-        zIndex={20}
-        width="full"
-        maxWidth="full"
-        position="sticky"
-        top={0}
-        gridArea="header"
-        opacity={90}
-        background={
-          colorMode === 'light' ? 'whiteAlpha.800' : 'blackAlpha.800   '
-        }
+  return (
+    <Container
+      visibility={showHeader ? 'visible' : 'hidden'}
+      as="header"
+      style={{ backdropFilter: 'blur(8px' }}
+      zIndex={20}
+      width="full"
+      maxWidth="full"
+      position="sticky"
+      top={0}
+      gridArea="header"
+      opacity={90}
+      background={
+        colorMode === 'light' ? 'whiteAlpha.800' : 'blackAlpha.800   '
+      }
+    >
+      <Flex
+        alignItems="center"
+        justifyContent="space-between"
+        width="4xl"
+        marginX="auto"
       >
-        <Flex
-          alignItems="center"
-          justifyContent="space-between"
-          width="4xl"
-          marginX="auto"
-        >
-          <Link href="/">
+        <Link href="/">
+          <a>
             <Logo className="logo" />
-            {/* <Text
+          </a>
+          {/* <Text
               fontWeight="bold"
               textColor="brand.600"
               fontSize="2xl"
@@ -44,25 +46,22 @@ const Header: FC = () => {
             >
               Saurav Khdoolia
             </Text> */}
-          </Link>
-          <Flex
-            alignItems="center"
-            justifyContent="space-between"
-            padding={4}
-            gridGap={8}
-          >
-            <CustomLink href="/blog">Blog</CustomLink>
-            <CustomLink href="/about">About</CustomLink>
-            <Button padding={1} onClick={toggleColorMode}>
-              {colorMode === 'light' ? <Moon size={18} /> : <Sun size={18} />}
-            </Button>
-          </Flex>
+        </Link>
+        <Flex
+          alignItems="center"
+          justifyContent="space-between"
+          padding={4}
+          gridGap={8}
+        >
+          <CustomLink href="/blog">Blog</CustomLink>
+          <CustomLink href="/about">About</CustomLink>
+          <Button padding={1} onClick={toggleColorMode}>
+            {colorMode === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+          </Button>
         </Flex>
-      </Container>
-    );
-  }
-
-  return <span />;
+      </Flex>
+    </Container>
+  );
 };
 
 export type UseFooter = () => {

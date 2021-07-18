@@ -2,14 +2,15 @@ import { ThemeProvider } from 'next-themes';
 import { MDXProvider } from '@mdx-js/react';
 import { RecoilRoot } from 'recoil';
 import { AppProps } from 'next/app';
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { ChakraProvider, Container } from '@chakra-ui/react';
 import { theme } from 'styles/themes';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import MDXComponents from 'components/MDXComponents';
-import Header from 'components/Header';
+import Header, { useHeader } from 'components/Header';
 import Footer from 'components/Footer';
 import { Globals } from 'styles/themes/globals';
+import { MouseMoveHider } from 'components/MouseMoveHider';
 import { defaultQueryFn } from '../lib/fetcher';
 
 // Create a client
@@ -41,6 +42,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
                 <Component {...pageProps} />
               </Container>
               <Footer />
+              <MouseMoveHider />
             </RecoilRoot>
           </QueryClientProvider>
         </MDXProvider>

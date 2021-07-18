@@ -5,7 +5,7 @@ import { GetStaticProps } from 'next';
 import BlogPostCard from 'components/BlogPostCard';
 import { PostsFrontMatter } from 'types/blog';
 import formatDistance from 'date-fns/formatDistance';
-import { Center, Container, Heading, Text } from '@chakra-ui/react';
+import { Container, Heading, Text } from '@chakra-ui/react';
 import { Meta } from 'components/Meta';
 
 const Blog: FC<{ posts: PostsFrontMatter }> = ({ posts }) => {
@@ -13,8 +13,10 @@ const Blog: FC<{ posts: PostsFrontMatter }> = ({ posts }) => {
     <>
       <Meta title="Blog - Saurav Khdoolia" />
       <Container maxWidth="2xl" paddingY={4}>
-        <Heading size="2xl">Blog</Heading>
-        <Text size="xl">
+        <Heading size="3xl" marginBottom="8px">
+          Blog
+        </Heading>
+        <Text fontSize="18px" marginY="16px">
           This is the place where I put stuff that people should know... myself
           included. In some {formatDistance(new Date(), new Date('2000-01-01'))}{' '}
           years I&#39;ve lived, I learned a few things and forgot a lot of them!
@@ -23,7 +25,9 @@ const Blog: FC<{ posts: PostsFrontMatter }> = ({ posts }) => {
         </Text>
         {posts.map((frontMatter) => (
           <Link key={frontMatter.slug} href={`/blog/${frontMatter.slug}`}>
-            <BlogPostCard key={frontMatter.title} {...frontMatter} />
+            <a>
+              <BlogPostCard key={frontMatter.title} {...frontMatter} />
+            </a>
           </Link>
         ))}
       </Container>
