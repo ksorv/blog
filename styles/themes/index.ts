@@ -11,8 +11,14 @@ const config: ThemeConfig = {
   useSystemColorMode: true
 };
 
+const fonts = `'Inter', '-apple-system','BlinkMacSystemFont',"Segoe UI",'Helvetica','Arial','sans-serif',"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`;
+
 export const theme = extendTheme(
   {
+    fonts: {
+      heading: fonts,
+      body: fonts
+    },
     colors: {
       brand: baseTheme.colors.purple
     },

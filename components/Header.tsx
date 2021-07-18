@@ -3,8 +3,8 @@ import { Sun, Moon } from 'react-feather';
 import Link from 'next/link';
 import { FC } from 'react';
 import { Button, Container, Flex, useColorMode } from '@chakra-ui/react';
-import { showHeaderAtom } from '../stores/ui';
-import Logo from '../images/fullLogo.svg';
+import Logo from 'images/fullLogo.svg';
+import { showHeaderAtom } from 'stores/ui';
 import CustomLink from './Link';
 
 const Header: FC = () => {

@@ -8,7 +8,22 @@ const Tags: FC<{ tags: [string] }> = ({ tags }) => (
       tags.map((tag) => {
         return (
           <NextLink key={tag} href={`tags/${tag}`}>
-            <Button variant="solid">{tag}</Button>
+            <Link
+              textDecoration="none"
+              _hover={{ textDecoration: 'none' }}
+              paddingX="8px"
+              paddingY="4px"
+              backgroundColor="brand.500"
+              borderRadius="4px"
+              marginX="8px"
+              textTransform="uppercase"
+              fontSize="14px"
+              color="gray.300"
+              // TODO: enable it when tags page is ready
+              pointerEvents="none"
+            >
+              {tag}
+            </Link>
           </NextLink>
         );
       })

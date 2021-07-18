@@ -15,6 +15,9 @@ const CustomLink: FC<{ href: string; showActive?: boolean }> = ({
       <Link
         color={isActive ? 'green.600' : 'brand.400'}
         textDecoration={isActive ? 'underline' : 'unset'}
+        _focus={{
+          outline: 'none'
+        }}
       >
         {children}
       </Link>
