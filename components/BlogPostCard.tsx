@@ -47,7 +47,9 @@ const BlogPostCard: FC<FrontMatter> = ({
       }}
     >
       {/* <div className="flex flex-col p-4 my-8 border-2 rounded-lg border-dotted border-purple-300 hover:border-purple-700 dark:border-purple-600 dark:hover:border-purple-300 relative blogPostCard"> */}
-      <Heading size="lg">{title}</Heading>
+      <Heading size="lg" color={isLight ? 'indianred' : 'yellow'}>
+        {title}
+      </Heading>
       <Flex
         alignItems="center"
         justifyContent="space-between"
