@@ -5,6 +5,7 @@ import { FC } from 'react';
 import { ChakraProvider, Container } from '@chakra-ui/react';
 import { theme } from 'styles/themes';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import MDXComponents from 'components/MDXComponents';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -32,6 +33,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => {
       <MDXProvider components={MDXComponents}>
         <RecoilRoot>
           <QueryClientProvider client={queryClient}>
+            <ReactQueryDevtools initialIsOpen={false} />
             <Globals />
             <Header />
             <Container
