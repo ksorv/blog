@@ -1,4 +1,3 @@
-import { ThemeProvider } from 'next-themes';
 import { MDXProvider } from '@mdx-js/react';
 import { RecoilRoot } from 'recoil';
 import { AppProps } from 'next/app';
@@ -24,30 +23,28 @@ const queryClient = new QueryClient({
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <ThemeProvider attribute="class">
-      <ChakraProvider theme={theme} resetCSS>
-        <MDXProvider components={MDXComponents}>
-          <RecoilRoot>
-            <QueryClientProvider client={queryClient}>
-              <Globals />
-              <Header />
-              <Container
-                as="main"
-                width="full"
-                maxWidth="2xl"
-                marginX="auto"
-                padding={6}
-                gridArea="main"
-              >
-                <Component {...pageProps} />
-              </Container>
-              <Footer />
-              <MouseMoveHider />
-            </QueryClientProvider>
-          </RecoilRoot>
-        </MDXProvider>
-      </ChakraProvider>
-    </ThemeProvider>
+    <ChakraProvider theme={theme} resetCSS>
+      <MDXProvider components={MDXComponents}>
+        <RecoilRoot>
+          <QueryClientProvider client={queryClient}>
+            <Globals />
+            <Header />
+            <Container
+              as="main"
+              width="full"
+              maxWidth="2xl"
+              marginX="auto"
+              padding={6}
+              gridArea="main"
+            >
+              <Component {...pageProps} />
+            </Container>
+            <Footer />
+            <MouseMoveHider />
+          </QueryClientProvider>
+        </RecoilRoot>
+      </MDXProvider>
+    </ChakraProvider>
   );
 };
 
