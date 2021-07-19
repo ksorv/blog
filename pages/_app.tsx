@@ -11,7 +11,7 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 import { Globals } from 'styles/themes/globals';
 import { MouseMoveHider } from 'components/MouseMoveHider';
-import { defaultQueryFn } from '../lib/fetcher';
+import { defaultQueryFn } from 'lib/fetcher';
 
 // Create a client
 const queryClient = new QueryClient({
@@ -22,7 +22,8 @@ const queryClient = new QueryClient({
       refetchOnMount: false,
       refetchOnReconnect: false,
       retry: false,
-      staleTime: 24 * 60 * 60 * 1000
+      staleTime: 24 * 60 * 60 * 1000,
+      cacheTime: 24 * 60 * 60 * 1000
     }
   }
 });
