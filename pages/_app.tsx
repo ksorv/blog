@@ -16,7 +16,12 @@ import { defaultQueryFn } from '../lib/fetcher';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      queryFn: defaultQueryFn
+      queryFn: defaultQueryFn,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+      retry: false,
+      staleTime: 24 * 60 * 60 * 1000
     }
   }
 });
