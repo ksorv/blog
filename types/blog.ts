@@ -10,8 +10,9 @@ export type PostsFrontMatter = PostFrontMatter[];
 export type FrontMatter = {
   title: string;
   summary: string;
-  writtenOn: string;
+  date: string;
   slug: string;
+  tags: [string];
 };
 
 export type BlogPostProps = {

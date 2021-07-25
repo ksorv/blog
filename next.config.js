@@ -6,6 +6,7 @@ const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com cdn.usefathom.com;
   child-src *.youtube.com *.google.com *.twitter.com;
+  frame-src codepen.io;
   style-src 'self' 'unsafe-inline' *.googleapis.com;
   img-src * blob: data:;
   media-src 'none';
@@ -81,6 +82,10 @@ const nextConfig = {
       require('./scripts/generate-sitemap');
       require('./scripts/generate-rss');
     }
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack']
+    });
 
     // Replace React with Preact only in client production build
     if (!dev && !isServer) {

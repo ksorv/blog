@@ -11,6 +11,7 @@ module.exports = {
           'styles/*': ['./styles/*'],
           'scripts/*': ['./scripts/*'],
           'stores/*': ['./stores/*'],
+          'types/*': ['./types/*'],
           'types/*': ['./types/*']
         }
       }

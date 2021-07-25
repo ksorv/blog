@@ -5,32 +5,16 @@ module.exports = {
     es6: true,
     browser: true
   },
-  parser: '@typescript-eslint/parser',
+  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module',
-    project: 'tsconfig.json'
-  }, // to enable features such as async/await
-  ignorePatterns: ['node_modules/*', '.next/*', '.out/*'], // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
-  extends: [
-    'next',
-    'next/core-web-vitals',
-    'airbnb-typescript',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended'
-  ],
-  plugins: ['@typescript-eslint', 'prettier'],
+    sourceType: 'module'
+  },
+  // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
+  ignorePatterns: ['node_modules/*', '.next/*', '.out/*'],
+  extends: ['airbnb', 'plugin:prettier/recommended'],
+  plugins: ['prettier'],
   rules: {
-    'react/jsx-filename-extension': [
-      2,
-      {
-        extensions: ['.tsx', '.jsx']
-      }
-    ],
-    'react/button-has-type': 'off',
-    'react/prop-types': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'react/jsx-props-no-spreading': 'off',
     'prettier/prettier': [
       'error',
       {
@@ -44,17 +28,71 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
 
     // Why would you ever need such a thing, lint is supposed to help not rule!
-    'import/prefer-default-export': 'off',
-
-    // When a is put under `next/link` href is provided... so no need
-    'jsx-a11y/anchor-is-valid': 'off'
+    'import/prefer-default-export': 'off'
   },
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.jsx', '.css', '.mdx', '.js', '.ts', '.tsx'],
+        extensions: ['.jsx', '.css', '.mdx', '.js', '.ts', '.tsx', '.svg'],
         paths: ['.']
       }
     }
-  }
+  },
+  overrides: [
+    {
+      env: { browser: true, es6: true, node: true },
+      files: ['*.ts', '*.tsx'], // Your TypeScript files extension
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaVersion: 2018,
+        sourceType: 'module',
+        project: 'tsconfig.json'
+      }, // to enable features such as async/await,
+      extends: [
+        'next',
+        'next/core-web-vitals',
+        'airbnb-typescript',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:prettier/recommended'
+      ],
+      plugins: ['@typescript-eslint', 'prettier'],
+      rules: {
+        'react/jsx-filename-extension': [
+          2,
+          {
+            extensions: ['.tsx']
+          }
+        ],
+        'react/button-has-type': 'off',
+        'react/prop-types': 'off',
+        'react/react-in-jsx-scope': 'off',
+        'react/jsx-props-no-spreading': 'off',
+        'prettier/prettier': [
+          'error',
+          {
+            endOfLine: 'auto'
+          },
+          {
+            usePrettierrc: true
+          }
+        ],
+        // had to disable it, as i dont want to include server side deps in client
+        'import/no-extraneous-dependencies': 'off',
+
+        // Why would you ever need such a thing, lint is supposed to help not rule!
+        'import/prefer-default-export': 'off',
+
+        // When a is put under `next/link` href is provided... so no need
+        'jsx-a11y/anchor-is-valid': 'off'
+      },
+      settings: {
+        'import/resolver': {
+          node: {
+            extensions: ['.jsx', '.css', '.mdx', '.js', '.ts', '.tsx', '.svg'],
+            paths: ['.']
+          }
+        }
+      }
+    }
+  ]
 };

@@ -1,5 +1,5 @@
-import Link from 'next/link';
 import { FC } from 'react';
+import CustomLink from 'components/Link';
 
 const NotFound: FC = () => {
   return (
@@ -10,11 +10,7 @@ const NotFound: FC = () => {
       <p className="text-gray-600 dark:text-gray-400 mb-4">
         So nice to see you here...
       </p>
-      <Link href="/" prefetch={false}>
-        <a className="bg-transparent focus:outline-none text-purple-500 hover:text-purple-600 hover:scale-105 hover:border-purple-500 px-3 py-2 border rounded">
-          Wanna Return Home?
-        </a>
-      </Link>
+      <CustomLink href="/">Wanna Go Home?</CustomLink>
     </div>
   );
 };
