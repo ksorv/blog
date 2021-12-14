@@ -11,39 +11,8 @@ type IndexData = {
 // to the component that renders it.
 // https://remix.run/api/conventions#loader
 export let loader: LoaderFunction = () => {
-  let data: IndexData = {
-    resources: [
-      {
-        name: "Remix Docs",
-        url: "https://remix.run/docs"
-      },
-      {
-        name: "React Router Docs",
-        url: "https://reactrouter.com/docs"
-      },
-      {
-        name: "Remix Discord",
-        url: "https://discord.gg/VBePs6d"
-      }
-    ],
-    demos: [
-      {
-        to: "demos/actions",
-        name: "Actions"
-      },
-      {
-        to: "demos/about",
-        name: "Nested Routes, CSS loading/unloading"
-      },
-      {
-        to: "demos/params",
-        name: "URL Params and Error Boundaries"
-      }
-    ]
-  };
-
   // https://remix.run/api/remix#json
-  return json(data);
+  return json({});
 };
 
 // https://remix.run/api/conventions#meta
