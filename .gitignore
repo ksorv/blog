@@ -6,6 +6,9 @@ storybook-*
 package-lock.json
 public/feed.xml
 public/sitemap.xml
+public/build
+.netlify
+netlify/functions/server/build
 
 
 # Logs
