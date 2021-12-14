@@ -1,4 +1,4 @@
 
 # [...World]
 
-Build Status: [![Netlify Status](https://api.netlify.com/api/v1/badges/c6dabaca-14ba-4eba-86b0-309a3a4d7cf8/deploy-status)](https://app.netlify.com/sites/blog-ks/deploys)
+Build Status: [![Netlify Status](https://api.netlify.com/api/v1/badges/e4d7279e-f724-4d11-b8c8-041fa33e44e8/deploy-status)](https://app.netlify.com/sites/ksorv/deploys)
