@@ -11,7 +11,7 @@ module.exports = {
     sourceType: 'module'
   },
   // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
-  ignorePatterns: ['node_modules/*', '.next/*', '.out/*'],
+  ignorePatterns: ['node_modules/*', '.out/*'],
   extends: ['airbnb', 'plugin:prettier/recommended'],
   plugins: ['prettier'],
   rules: {
@@ -49,8 +49,6 @@ module.exports = {
         project: 'tsconfig.json'
       }, // to enable features such as async/await,
       extends: [
-        'next',
-        'next/core-web-vitals',
         'airbnb-typescript',
         'plugin:@typescript-eslint/recommended',
         'plugin:prettier/recommended'
