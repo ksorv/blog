@@ -1,28 +1,31 @@
 {
   "private": true,
-  "name": "sauravkhdoolia.com",
+  "name": "ksorv.com",
   "description": "Repo which lives at its name",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": {
     "name": "Saurav Khdoolia",
-    "email": "me@sauravkhdoolia.com",
-    "url": "https://sauravkhdoolia.com"
+    "email": "me@ksorv.com",
+    "url": "https://ksorv.com"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ksorv/sauravkhdoolia.com.git"
+    "url": "git+https://github.com/ksorv/blog.git"
   },
   "scripts": {
     "build": "remix build",
-    "dev": "remix watch",
+    "dev:remix": "remix watch",
     "postinstall": "remix setup node",
-    "dev:netlify": "cross-env NODE_ENV=development netlify dev"
+    "dev:netlify": "cross-env NODE_ENV=development netlify dev",
+    "serve": "remix-serve build",
+    "start": "concurrently --names 'REMIX,NETLIFY' -c 'blue.bold,yellow.bold' 'npm run dev:remix' 'npm run dev:netlify'"
   },
   "dependencies": {
     "@netlify/functions": "^0.7.2",
     "@remix-run/netlify": "^1.0.6",
     "@remix-run/react": "^1.0.6",
+    "@remix-run/serve": "^1.0.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remix": "^1.0.6"
@@ -31,7 +34,9 @@
     "@remix-run/dev": "^1.0.6",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
+    "concurrently": "^6.4.0",
     "cross-env": "^7.0.3",
+    "tslib": "^2.3.1",
     "typescript": "^4.1.2"
   },
   "engines": {
