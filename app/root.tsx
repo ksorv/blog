@@ -1,5 +1,4 @@
 import {
-  Link,
   Links,
   LiveReload,
   Meta,
@@ -12,7 +11,7 @@ import type { LinksFunction } from 'remix';
 import tailwindStyles from './styles/tailwind.css';
 import globalStyles from './styles/global.css';
 
-export let links: LinksFunction = () => {
+export const links: LinksFunction = () => {
   return [
     { rel: 'stylesheet', href: tailwindStyles },
     { rel: 'stylesheet', href: globalStyles }
@@ -24,18 +23,31 @@ export let links: LinksFunction = () => {
   ];
 };
 
-export default function App() {
+const Document: React.FC<{ title?: string }> = ({ children, title }) => {
   return (
-    <Document>
-      <Layout>
-        <Outlet />
-      </Layout>
-    </Document>
+    <html lang="en">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        {title ? <title>{title}</title> : null}
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        {children}
+        <ScrollRestoration />
+        <Scripts />
+        {process.env.NODE_ENV === 'development' && <LiveReload />}
+      </body>
+    </html>
   );
-}
+};
 
-export function ErrorBoundary({ error }: { error: Error }) {
-  console.error(error);
+const Layout: React.FC = ({ children }) => {
+  return <div className="w-full h-full">{children}</div>;
+};
+
+const ErrorBoundary: React.FC<{ error: Error }> = ({ error }) => {
   return (
     <Document title="Error!">
       <Layout>
@@ -43,16 +55,15 @@ export function ErrorBoundary({ error }: { error: Error }) {
           <h1>Error!</h1>
           <p>{error.message}</p>
           <hr />
-          <p>Hold my beer... I'm fixin' it.</p>
+          <p>Hold my beer... I&apos;m fixin&apos; it.</p>
         </div>
       </Layout>
     </Document>
   );
-}
+};
 
-export function CatchBoundary() {
-  let caught = useCatch();
-
+const CatchBoundary: React.FC = () => {
+  const caught = useCatch();
   let message;
   switch (caught.status) {
     case 401:
@@ -76,34 +87,17 @@ export function CatchBoundary() {
       </Layout>
     </Document>
   );
-}
+};
 
-function Document({
-  children,
-  title
-}: {
-  children: React.ReactNode;
-  title?: string;
-}) {
+const App: React.FC = () => {
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-        {title ? <title>{title}</title> : null}
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        {children}
-        <ScrollRestoration />
-        <Scripts />
-        {process.env.NODE_ENV === 'development' && <LiveReload />}
-      </body>
-    </html>
+    <Document>
+      <Layout>
+        <Outlet />
+      </Layout>
+    </Document>
   );
-}
+};
 
-function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
+export default App;
+export { CatchBoundary, ErrorBoundary };

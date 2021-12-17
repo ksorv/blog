@@ -28,7 +28,12 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
 
     // Why would you ever need such a thing, lint is supposed to help not rule!
-    'import/prefer-default-export': 'off'
+    'import/prefer-default-export': 'off',
+
+    // really?
+    'react/function-component-definition': "off",
+
+    "comma-dangle": "off"
   },
   settings: {
     'import/resolver': {
