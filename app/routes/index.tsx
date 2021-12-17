@@ -10,7 +10,7 @@ export let meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div>
+    <div className="w-full h-full flex items-center justify-center">
       Being rebuilt with Remix, TypeScript, Netlify & Tailwind(probably).
     </div>
   );

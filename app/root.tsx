@@ -9,9 +9,13 @@ import {
   useCatch
 } from 'remix';
 import type { LinksFunction } from 'remix';
+import tailwindStyles from './styles/tailwind.css';
+import globalStyles from './styles/global.css';
 
 export let links: LinksFunction = () => {
   return [
+    { rel: 'stylesheet', href: tailwindStyles },
+    { rel: 'stylesheet', href: globalStyles }
     // {
     //   rel: "stylesheet",
     //   href: darkStylesUrl,
@@ -101,5 +105,5 @@ function Document({
 }
 
 function Layout({ children }: { children: React.ReactNode }) {
-  return <div>{children}</div>;
+  return <>{children}</>;
 }
