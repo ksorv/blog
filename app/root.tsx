@@ -17,6 +17,7 @@ import globalStyles from './styles/global.css';
 import { getSession } from './lib/theme';
 import { Themes } from './utils/useThemeToggle';
 import { GlobalContext, GlobalStateProvider } from './stores/providers';
+import { Header } from './components/Header';
 
 export const links: LinksFunction = () => {
   return [
@@ -61,7 +62,12 @@ const Document: React.FC<{ title?: string }> = ({ children, title }) => {
 };
 
 const Layout: React.FC = ({ children }) => {
-  return <div className="w-full h-full bg-primary-accent">{children}</div>;
+  return (
+    <div className="w-screen h-screen bg-primary-accent">
+      <Header />
+      {children}
+    </div>
+  );
 };
 
 const ErrorBoundary: React.FC<{ error: Error }> = ({ error }) => {
