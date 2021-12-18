@@ -7,6 +7,7 @@ const getColor =
 
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
+  darkMode: 'class',
   content: ['./app/**/*.tsx'],
   theme: {
     colors: {

@@ -1318,6 +1318,13 @@
   dependencies:
     "ms" "2.1.2"
 
+"debug@^4.3.1":
+  "integrity" "sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q=="
+  "resolved" "https://registry.npmjs.org/debug/-/debug-4.3.3.tgz"
+  "version" "4.3.3"
+  dependencies:
+    "ms" "2.1.2"
+
 "debug@^4.3.2":
   "integrity" "sha512-/zxw5+vh1Tfv+4Qn7a5nsbcJKPaSvCDhojn6FEl9vupwK2VCSDtEiEtqr8DFtzYFOdz63LBkxec7DYuc2jon6Q=="
   "resolved" "https://registry.npmjs.org/debug/-/debug-4.3.3.tgz"
@@ -1624,6 +1631,17 @@
     "debug" "^3.2.7"
     "resolve" "^1.20.0"
 
+"eslint-import-resolver-typescript@^2.5.0":
+  "integrity" "sha512-qZ6e5CFr+I7K4VVhQu3M/9xGv9/YmwsEXrsm3nimw8vWaVHRDrQRp26BgCypTxBp3vUp4o5aVEJRiy0F2DFddQ=="
+  "resolved" "https://registry.npmjs.org/eslint-import-resolver-typescript/-/eslint-import-resolver-typescript-2.5.0.tgz"
+  "version" "2.5.0"
+  dependencies:
+    "debug" "^4.3.1"
+    "glob" "^7.1.7"
+    "is-glob" "^4.0.1"
+    "resolve" "^1.20.0"
+    "tsconfig-paths" "^3.9.0"
+
 "eslint-module-utils@^2.7.1":
   "integrity" "sha512-fjoetBXQZq2tSTWZ9yWVl2KuFrTZZH3V+9iD1V1RfpDgxzJR+mPd/KZmMiA8gbPqdBzpNiEHOuT7IYEWxrH0zQ=="
   "resolved" "https://registry.npmjs.org/eslint-module-utils/-/eslint-module-utils-2.7.1.tgz"
@@ -1633,7 +1651,7 @@
     "find-up" "^2.1.0"
     "pkg-dir" "^2.0.0"
 
-"eslint-plugin-import@^2.25.2", "eslint-plugin-import@^2.25.3":
+"eslint-plugin-import@*", "eslint-plugin-import@^2.25.2", "eslint-plugin-import@^2.25.3":
   "integrity" "sha512-RzAVbby+72IB3iOEL8clzPLzL3wpDrlwjsTBAQXgyp5SeTqqY+0bFubwuo+y/HLhNZcXV4XqTBO4LGsfyHIDXg=="
   "resolved" "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.25.3.tgz"
   "version" "2.25.3"
@@ -2163,7 +2181,7 @@
   dependencies:
     "is-glob" "^4.0.3"
 
-"glob@^7.1.3", "glob@^7.1.4":
+"glob@^7.1.3", "glob@^7.1.4", "glob@^7.1.7":
   "integrity" "sha512-lmLf6gtyrPq8tTjSmrO94wBeQbFR3HbLHbuyD69wuyQkImp2hWqMGB47OX65FBkPffO641IP9jWa1z4ivqG26Q=="
   "resolved" "https://registry.npmjs.org/glob/-/glob-7.2.0.tgz"
   "version" "7.2.0"
@@ -4435,7 +4453,7 @@
   "resolved" "https://registry.npmjs.org/trough/-/trough-2.0.2.tgz"
   "version" "2.0.2"
 
-"tsconfig-paths@^3.11.0":
+"tsconfig-paths@^3.11.0", "tsconfig-paths@^3.9.0":
   "integrity" "sha512-e5adrnOYT6zqVnWqZu7i/BQ3BnhzvGbjEjejFXO20lKIKpwTaupkCPgEfv4GZK1IBciJUEhYs3J3p75FdaTFVg=="
   "resolved" "https://registry.npmjs.org/tsconfig-paths/-/tsconfig-paths-3.12.0.tgz"
   "version" "3.12.0"

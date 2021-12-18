@@ -86,8 +86,11 @@ module.exports = {
         // Why would you ever need such a thing, lint is supposed to help not rule!
         'import/prefer-default-export': 'off',
 
-        // When a is put under `next/link` href is provided... so no need
-        'jsx-a11y/anchor-is-valid': 'off'
+        'react/function-component-definition': 'off',
+        'import/no-unresolved': 'off',
+
+        // I cant figure this out
+        'import/extensions': 'off'
       },
       settings: {
         'import/resolver': {
