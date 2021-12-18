@@ -15,9 +15,9 @@ import { useContext } from 'react';
 import tailwindStyles from './styles/tailwindOut.css';
 import globalStyles from './styles/global.css';
 import { getSession } from './lib/theme';
-import { Themes } from './utils/useThemeToggle';
 import { GlobalContext, GlobalStateProvider } from './stores/providers';
 import { Header } from './components/Header';
+import { Themes, useThemeToggle } from './utils/useThemeToggle';
 
 export const links: LinksFunction = () => {
   return [
@@ -35,15 +35,21 @@ export const loader: LoaderFunction = async ({ request }) => {
   const session = await getSession(request.headers.get('Cookie'));
   const currentTheme = session.get('theme');
 
+  console.log(`\nAPP_ROOT_THEME`, currentTheme, '\n');
   return json({
     theme: currentTheme
   });
 };
 
-const Document: React.FC<{ title?: string }> = ({ children, title }) => {
-  const globalState = useContext(GlobalContext);
+const Document: React.FC<{ title?: string; theme?: Themes }> = ({
+  children,
+  title,
+  theme: localTheme
+}) => {
+  const { theme } = useContext(GlobalContext);
+
   return (
-    <html lang="en" className={globalState.theme}>
+    <html lang="en" className={theme || localTheme}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -71,8 +77,10 @@ const Layout: React.FC = ({ children }) => {
 };
 
 const ErrorBoundary: React.FC<{ error: Error }> = ({ error }) => {
+  const { theme } = useThemeToggle();
+
   return (
-    <Document title="Error!">
+    <Document title="Error!" theme={theme}>
       <Layout>
         <div>
           <h1>Error!</h1>
@@ -86,6 +94,7 @@ const ErrorBoundary: React.FC<{ error: Error }> = ({ error }) => {
 };
 
 const CatchBoundary: React.FC = () => {
+  const { theme } = useThemeToggle();
   const caught = useCatch();
   let message;
   switch (caught.status) {
@@ -101,7 +110,7 @@ const CatchBoundary: React.FC = () => {
   }
 
   return (
-    <Document title={`${caught.status} ${caught.statusText}`}>
+    <Document title={`${caught.status} ${caught.statusText}`} theme={theme}>
       <Layout>
         <h1>
           {caught.status}: {caught.statusText}

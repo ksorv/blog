@@ -6,16 +6,25 @@ export enum Themes {
   dark = 'dark'
 }
 
-export function useThemeToggle(initTheme: Themes) {
+const ThemeKey = 'ksorv-theme';
+
+export function useThemeToggle(initTheme?: Themes) {
   const [theme, setTheme] = useState<Themes>(() => {
     if (initTheme && initTheme in Themes) {
       return initTheme;
     }
+
     if (typeof document !== 'undefined') {
+      const localTheme = localStorage.getItem(ThemeKey);
+      if (localTheme && localTheme in Themes) {
+        return localTheme as Themes;
+      }
+
       return window.matchMedia('(prefers-color-scheme: dark)').matches
         ? Themes.dark
         : Themes.light;
     }
+
     return Themes.dark;
   });
 
@@ -36,6 +45,8 @@ export function useThemeToggle(initTheme: Themes) {
       return;
     }
     if (!theme) return;
+
+    localStorage.setItem(ThemeKey, theme);
 
     persistThemeRef.current.submit(
       { theme },

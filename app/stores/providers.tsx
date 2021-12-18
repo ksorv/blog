@@ -4,13 +4,13 @@ import { Themes, useThemeToggle } from '~/utils/useThemeToggle';
 type ThemeConfigType = {
   isDarkTheme: boolean;
   setTheme: (theme: Themes) => void;
-  theme: Themes;
+  theme: Themes | undefined;
 };
 
 const GlobalContext = createContext<ThemeConfigType>({
-  isDarkTheme: true,
+  isDarkTheme: false,
   setTheme: () => {},
-  theme: Themes.dark
+  theme: undefined
 });
 const { Provider } = GlobalContext;
 

@@ -41,7 +41,7 @@ export const Header = () => {
     <nav className="bg-white py-2 md:py-4">
       <div className="container px-4 mx-auto md:flex md:items-center">
         <div className="flex justify-between items-center">
-          <Link to="/" className="font-bold text-xl text-indigo-600">
+          <Link to="/" className="font-bold text-xl text-secondary">
             kSorv
           </Link>
           <button
