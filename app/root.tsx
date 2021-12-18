@@ -1,15 +1,22 @@
 import {
+  json,
   Links,
   LiveReload,
+  LoaderFunction,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
-  useCatch
+  useCatch,
+  useLoaderData
 } from 'remix';
 import type { LinksFunction } from 'remix';
+import { useContext } from 'react';
 import tailwindStyles from './styles/tailwindOut.css';
 import globalStyles from './styles/global.css';
+import { getSession } from './lib/theme';
+import { Themes } from './utils/useThemeToggle';
+import { GlobalContext, GlobalStateProvider } from './stores/providers';
 
 export const links: LinksFunction = () => {
   return [
@@ -23,9 +30,19 @@ export const links: LinksFunction = () => {
   ];
 };
 
+export const loader: LoaderFunction = async ({ request }) => {
+  const session = await getSession(request.headers.get('Cookie'));
+  const currentTheme = session.get('theme');
+
+  return json({
+    theme: currentTheme
+  });
+};
+
 const Document: React.FC<{ title?: string }> = ({ children, title }) => {
+  const globalState = useContext(GlobalContext);
   return (
-    <html lang="en">
+    <html lang="en" className={globalState.theme}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -44,7 +61,7 @@ const Document: React.FC<{ title?: string }> = ({ children, title }) => {
 };
 
 const Layout: React.FC = ({ children }) => {
-  return <div className="w-full h-full">{children}</div>;
+  return <div className="w-full h-full bg-primary-accent">{children}</div>;
 };
 
 const ErrorBoundary: React.FC<{ error: Error }> = ({ error }) => {
@@ -90,12 +107,16 @@ const CatchBoundary: React.FC = () => {
 };
 
 const App: React.FC = () => {
+  const { theme } = useLoaderData();
+
   return (
-    <Document>
-      <Layout>
-        <Outlet />
-      </Layout>
-    </Document>
+    <GlobalStateProvider theme={theme}>
+      <Document>
+        <Layout>
+          <Outlet />
+        </Layout>
+      </Document>
+    </GlobalStateProvider>
   );
 };
 

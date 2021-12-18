@@ -10,12 +10,6 @@
     "strict": true,
     "paths": {
       "~/*": ["./app/*"],
-      "components/*": ["app/components/*"],
-      "data/*": ["./data/*"],
-      "styles/*": ["./styles/*"],
-      "scripts/*": ["./scripts/*"],
-      "stores/*": ["./stores/*"],
-      "types/*": ["app/types/*"]
     },
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
