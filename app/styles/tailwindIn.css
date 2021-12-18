@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 79 70 229;
+    --secondary: 229 195 70;
+    --tertiary: 229 115 70;
+    --primary-accent: 245 245 245;
+    --secondary-accent: 12 20 30;
+  }
+
+  .theme-dark {
+    --primary: 79 70 229;
+    --secondary: 229 195 70;
+    --tertiary: 229 115 70;
+    --primary-accent: 12 20 30;
+    --secondary-accent: 245 245 245;
+  }
+}

@@ -8,7 +8,8 @@ module.exports = {
   parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module'
+    sourceType: 'module',
+    requireConfigFile: false
   },
   // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
   ignorePatterns: ['node_modules/*', '.out/*'],
@@ -28,7 +29,12 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
 
     // Why would you ever need such a thing, lint is supposed to help not rule!
-    'import/prefer-default-export': 'off'
+    'import/prefer-default-export': 'off',
+
+    // really?
+    'react/function-component-definition': 'off',
+
+    'comma-dangle': 'off'
   },
   settings: {
     'import/resolver': {
