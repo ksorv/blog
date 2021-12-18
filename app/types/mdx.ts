@@ -1,4 +1,3 @@
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { FrontMatter } from './blog';
 
 interface IReadTimeResults {
@@ -9,7 +8,7 @@ interface IReadTimeResults {
 }
 
 type GetFileBySlugReturn = Promise<{
-  mdxSource: MDXRemoteSerializeResult;
+  mdxSource: unknown;
   frontMatter: {
     wordCount: number;
     readingTime: IReadTimeResults;

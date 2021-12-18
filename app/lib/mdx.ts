@@ -6,8 +6,8 @@ import { serialize } from 'next-mdx-remote/serialize';
 import remarkCodeTitles from 'remark-code-titles';
 import remarkAutolinkHeadings from 'remark-autolink-headings';
 import remarkSlug from 'remark-slug';
-import { GetFileBySlug, GetFiles, GetAllFilesFrontMatter } from 'types/mdx';
-import { FrontMatter } from 'types/blog';
+import { GetFileBySlug, GetFiles, GetAllFilesFrontMatter } from '~/types/mdx';
+import { FrontMatter } from '~/types/blog';
 
 const root = process.cwd();
 

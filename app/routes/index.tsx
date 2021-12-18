@@ -1,4 +1,4 @@
-import type { MetaFunction } from 'remix';
+import { Link, MetaFunction } from 'remix';
 
 export const meta: MetaFunction = () => {
   return {
@@ -10,8 +10,22 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div className="w-full h-full flex flex-col items-center justify-center text-primary/100">
       Being rebuilt with Remix, TypeScript, Netlify & Tailwind(probably).
+      <div className="flex my-6 items-center justify-center gap-4 text-primary">
+        <Link
+          to="/colors"
+          className="text-tertiary underline underline-offset-1"
+        >
+          Colors
+        </Link>
+        <Link
+          to="/typography"
+          className="text-secondary underline underline-offset-1"
+        >
+          Typography
+        </Link>
+      </div>
     </div>
   );
 }

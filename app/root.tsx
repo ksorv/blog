@@ -8,7 +8,7 @@ import {
   useCatch
 } from 'remix';
 import type { LinksFunction } from 'remix';
-import tailwindStyles from './styles/tailwind.css';
+import tailwindStyles from './styles/tailwindOut.css';
 import globalStyles from './styles/global.css';
 
 export const links: LinksFunction = () => {
