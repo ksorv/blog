@@ -1,4 +1,4 @@
-import { Link, MetaFunction } from 'remix';
+import { Link, MetaFunction, useCatch } from 'remix';
 
 export const meta: MetaFunction = () => {
   return {
@@ -29,3 +29,12 @@ export default function Index() {
     </div>
   );
 }
+
+export const CatchBoundary = () => {
+  const { statusText } = useCatch();
+  return <p>Error!: {statusText}</p>;
+};
+
+export const ErrorBoundary = () => {
+  return <p>Error!</p>;
+};

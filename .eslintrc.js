@@ -88,6 +88,7 @@ module.exports = {
 
         'react/function-component-definition': 'off',
         'import/no-unresolved': 'off',
+        'react/require-default-props': 'off',
 
         // I cant figure this out
         'import/extensions': 'off'

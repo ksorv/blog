@@ -17,7 +17,6 @@ import globalStyles from './styles/global.css';
 import { getSession } from './lib/theme';
 import { GlobalContext, GlobalStateProvider } from './stores/providers';
 import { Header } from './components/Header';
-import { Themes, useThemeToggle } from './utils/useThemeToggle';
 
 export const links: LinksFunction = () => {
   return [
@@ -35,21 +34,15 @@ export const loader: LoaderFunction = async ({ request }) => {
   const session = await getSession(request.headers.get('Cookie'));
   const currentTheme = session.get('theme');
 
-  console.log(`\nAPP_ROOT_THEME`, currentTheme, '\n');
   return json({
     theme: currentTheme
   });
 };
 
-const Document: React.FC<{ title?: string; theme?: Themes }> = ({
-  children,
-  title,
-  theme: localTheme
-}) => {
+const Document: React.FC<{ title?: string }> = ({ children, title }) => {
   const { theme } = useContext(GlobalContext);
-
   return (
-    <html lang="en" className={theme || localTheme}>
+    <html lang="en" className={theme}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -77,24 +70,24 @@ const Layout: React.FC = ({ children }) => {
 };
 
 const ErrorBoundary: React.FC<{ error: Error }> = ({ error }) => {
-  const { theme } = useThemeToggle();
-
+  console.error(error);
   return (
-    <Document title="Error!" theme={theme}>
-      <Layout>
-        <div>
-          <h1>Error!</h1>
-          <p>{error.message}</p>
-          <hr />
-          <p>Hold my beer... I&apos;m fixin&apos; it.</p>
-        </div>
-      </Layout>
-    </Document>
+    <GlobalStateProvider>
+      <Document title="Error!">
+        <Layout>
+          <div>
+            <h1>Error!</h1>
+            <p>{error.message}</p>
+            <hr />
+            <p>Hold my beer... I&apos;m fixin&apos; it.</p>
+          </div>
+        </Layout>
+      </Document>
+    </GlobalStateProvider>
   );
 };
 
 const CatchBoundary: React.FC = () => {
-  const { theme } = useThemeToggle();
   const caught = useCatch();
   let message;
   switch (caught.status) {
@@ -110,14 +103,16 @@ const CatchBoundary: React.FC = () => {
   }
 
   return (
-    <Document title={`${caught.status} ${caught.statusText}`} theme={theme}>
-      <Layout>
-        <h1>
-          {caught.status}: {caught.statusText}
-        </h1>
-        {message}
-      </Layout>
-    </Document>
+    <GlobalStateProvider>
+      <Document title={`${caught.status} ${caught.statusText}`}>
+        <Layout>
+          <h1>
+            {caught.status}: {caught.statusText}
+          </h1>
+          {message}
+        </Layout>
+      </Document>
+    </GlobalStateProvider>
   );
 };
 

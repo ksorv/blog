@@ -3,10 +3,7 @@ import { commitSession, getSession } from '~/lib/theme';
 import { Themes } from '~/utils/useThemeToggle';
 
 export const loader: LoaderFunction = async () => {
-  return redirect('/', {
-    status: 303,
-    statusText: 'Did not expect you to be here'
-  });
+  return {};
 };
 
 export const action: ActionFunction = async ({ request }) => {

@@ -14,7 +14,7 @@ const GlobalContext = createContext<ThemeConfigType>({
 });
 const { Provider } = GlobalContext;
 
-const GlobalStateProvider: React.FC<{ theme: Themes }> = ({
+const GlobalStateProvider: React.FC<{ theme?: Themes | undefined }> = ({
   children,
   theme: argTheme
 }) => {

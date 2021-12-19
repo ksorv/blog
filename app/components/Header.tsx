@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'remix';
 import { cx } from '~/utils/classnames';
+import { ThemeToggle } from './ThemeToggle';
 
 const links = [
   {
@@ -22,7 +23,7 @@ const CustomLink: React.FC<{
   disabled: boolean;
 }> = ({ to, disabled, active, children }) => {
   const className = cx(
-    'p-2 lg:px-4 md:mx-2 text-secondary-accent rounded hover:bg-gray-200 hover:text-tertiary transition-colors duration-300',
+    'p-2 lg:px-4 text-lg flex items-center justify-center md:mx-2 text-secondary-accent rounded hover:bg-gray-200 hover:text-tertiary transition-colors duration-300',
     {
       'bg-primary': active,
       'bg-secondary-accent/20': disabled
@@ -65,6 +66,7 @@ export const Header = () => {
               {label}
             </CustomLink>
           ))}
+          <ThemeToggle className="md:mx-2" />
         </div>
       </div>
     </nav>

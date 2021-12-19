@@ -1,9 +1,11 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { cx } from '~/utils/classnames';
 import { GlobalContext } from '~/stores/providers';
 import { Themes } from '~/utils/useThemeToggle';
 
-export const ThemeToggle: React.FC = () => {
+export const ThemeToggle: React.FC<{ className?: string }> = ({
+  className
+}) => {
   const { setTheme, isDarkTheme } = useContext(GlobalContext);
 
   return (
@@ -11,7 +13,10 @@ export const ThemeToggle: React.FC = () => {
       onClick={() => {
         setTheme(isDarkTheme ? Themes.light : Themes.dark);
       }}
-      className="border-secondary hover:border-primary focus:border-primary inline-flex items-center justify-center p-1 h-14 border-2 rounded-full focus:outline-none overflow-hidden transition w-14"
+      className={cx(
+        'border-secondary hover:border-primary focus:border-primary inline-flex items-center justify-center p-1 h-14 border-2 rounded-full focus:outline-none overflow-hidden transition w-14',
+        className
+      )}
     >
       <div className={cx('relative w-8 h-8')}>
         <span
