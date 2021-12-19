@@ -21,7 +21,7 @@ const links = [
 export const Header = () => {
   const location = useLocation();
   return (
-    <nav className="bg-white py-2 md:py-4">
+    <nav className="bg-white py-8 md:py-6">
       <div className="container px-4 mx-auto md:flex md:items-center">
         <div className="flex justify-between items-center">
           <Link

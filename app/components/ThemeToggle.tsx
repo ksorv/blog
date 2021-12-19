@@ -14,13 +14,13 @@ export const ThemeToggle: React.FC<{ className?: string }> = ({
         setTheme(isDarkTheme ? Themes.light : Themes.dark);
       }}
       className={cx(
-        'border-primary border-b-2 border-l-[1px] hover:border-2 focus:border-2 focus:border-secondary-accent inline-flex items-center justify-center p-1 h-14 rounded-full focus:outline-none overflow-hidden transition w-14',
+        'border-primary border-b-2 border-l-[1px] hover:border-2 focus:border-2 focus:border-secondary-accent inline-flex items-center justify-center p-1 h-14 rounded-full focus:outline-none overflow-hidden scale-75 w-14',
         className
       )}
     >
       <div className={cx('relative w-8 h-8')}>
         <span
-          className="motion-reduce:duration-[0s] absolute inset-0 text-primary-accent dark:text-secondary-accent transform dark:rotate-0 rotate-90 transition duration-1000"
+          className="motion-reduce:duration-[0s] absolute inset-0 text-secondary-accent transform dark:rotate-0 rotate-90 transition duration-1000"
           style={{ transformOrigin: '50% 100px' }}
         >
           <svg
@@ -38,7 +38,7 @@ export const ThemeToggle: React.FC<{ className?: string }> = ({
           </svg>
         </span>
         <span
-          className="motion-reduce:duration-[0s] absolute inset-0 text-secondary-accent dark:text-primary-accent transform dark:-rotate-90 rotate-0 transition duration-1000"
+          className="motion-reduce:duration-[0s] absolute inset-0 text-secondary-accent transform dark:-rotate-90 rotate-0 transition duration-1000"
           style={{ transformOrigin: '50% 100px' }}
         >
           <svg

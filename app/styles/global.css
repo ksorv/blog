@@ -18,14 +18,14 @@ body {
   }
 }
 
-.navLink.active {
-  text-decoration: overline;
-}
-
-.navLink.active:hover {
-  text-decoration: none;
-}
-
 .navLink:hover {
   background-size: auto 6px;
 }
+
+.navLink.active {
+  text-decoration: overline;
+  background-size: 0;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
