@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'remix';
 import { cx } from '~/utils/classnames';
+import { NavLink } from './NavLink/NavLink';
 import { ThemeToggle } from './ThemeToggle';
 
 const links = [
@@ -42,7 +43,10 @@ export const Header = () => {
     <nav className="bg-white py-2 md:py-4">
       <div className="container px-4 mx-auto md:flex md:items-center">
         <div className="flex justify-between items-center">
-          <Link to="/" className="font-bold text-xl text-secondary">
+          <Link
+            to="/"
+            className="font-bold text-xl dark:text-secondary text-tertiary"
+          >
             kSorv
           </Link>
           <button
@@ -53,18 +57,13 @@ export const Header = () => {
           </button>
         </div>
         <div
-          className="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0"
+          className="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0 items-center"
           id="navbar-collapse"
         >
           {links.map(({ label, href }) => (
-            <CustomLink
-              key={href}
-              to={href}
-              disabled={false}
-              active={href === location.pathname}
-            >
+            <NavLink key={href} href={href} active={href === location.pathname}>
               {label}
-            </CustomLink>
+            </NavLink>
           ))}
           <ThemeToggle className="md:mx-2" />
         </div>
