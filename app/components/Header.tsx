@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'remix';
-import { cx } from '~/utils/classnames';
+import { Logo } from './Logo';
 import { NavLink } from './NavLink/NavLink';
 import { ThemeToggle } from './ThemeToggle';
 
@@ -18,25 +18,6 @@ const links = [
   }
 ];
 
-const CustomLink: React.FC<{
-  to: string;
-  active: boolean;
-  disabled: boolean;
-}> = ({ to, disabled, active, children }) => {
-  const className = cx(
-    'p-2 lg:px-4 text-lg flex items-center justify-center md:mx-2 text-secondary-accent rounded hover:bg-gray-200 hover:text-tertiary transition-colors duration-300',
-    {
-      'bg-primary': active,
-      'bg-secondary-accent/20': disabled
-    }
-  );
-  return (
-    <Link to={to} prefetch="intent" className={className}>
-      {children}
-    </Link>
-  );
-};
-
 export const Header = () => {
   const location = useLocation();
   return (
@@ -45,9 +26,13 @@ export const Header = () => {
         <div className="flex justify-between items-center">
           <Link
             to="/"
-            className="font-bold text-xl dark:text-secondary text-tertiary"
+            className="text-xl dark:text-secondary text-tertiary flex items-center gap-[1px]"
           >
-            kSorv
+            <p className="text-secondary-accent text-[1.75rem] font-bold">K</p>
+            <Logo className="h-6 mb-[0.2rem] fill-primary" />
+            <p className="text-secondary-accent text-[1.75rem] font-bold">
+              ORV
+            </p>
           </Link>
           <button
             className="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden"

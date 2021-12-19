@@ -21,7 +21,68 @@ import { Header } from './components/Header';
 export const links: LinksFunction = () => {
   return [
     { rel: 'stylesheet', href: tailwindStyles },
-    { rel: 'stylesheet', href: globalStyles }
+    { rel: 'stylesheet', href: globalStyles },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      href: '/favicons/apple-touch-icon.png'
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '32x32',
+      href: '/favicons/favicon-32x32.png'
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '16x16',
+      href: '/favicons/favicon-16x16.png'
+    },
+    { rel: 'manifest', href: '/site.webmanifest' },
+    { rel: 'icon', href: '/favicon.ico' },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '/fonts/Nunito300.woff2',
+      type: 'font/woff2',
+      crossOrigin: 'anonymous'
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '/fonts/Nunito700.woff2',
+      type: 'font/woff2',
+      crossOrigin: 'anonymous'
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '/fonts/Nunito900.woff2',
+      type: 'font/woff2',
+      crossOrigin: 'anonymous'
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '/fonts/Nunito900I.woff2',
+      type: 'font/woff2',
+      crossOrigin: 'anonymous'
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '/fonts/NunitoI.woff2',
+      type: 'font/woff2',
+      crossOrigin: 'anonymous'
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '/fonts/NunitoR.woff2',
+      type: 'font/woff2',
+      crossOrigin: 'anonymous'
+    }
     // {
     //   rel: "stylesheet",
     //   href: darkStylesUrl,

@@ -1,4 +1,4 @@
-import { ActionFunction, json, LoaderFunction, redirect } from 'remix';
+import { ActionFunction, json, LoaderFunction } from 'remix';
 import { commitSession, getSession } from '~/lib/theme';
 import { Themes } from '~/utils/useThemeToggle';
 

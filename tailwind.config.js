@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 const getColor =
   (colorCode) =>
   ({ opacityVariable }) =>
@@ -17,7 +19,11 @@ module.exports = {
       'primary-accent': getColor('primary-accent'),
       'secondary-accent': getColor('secondary-accent')
     },
-    extend: {}
+    extend: {
+      fontFamily: {
+        sans: ['Nunito', ...defaultTheme.fontFamily.sans]
+      }
+    }
   },
   plugins: []
 };
