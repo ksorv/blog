@@ -14,7 +14,8 @@ export const ThemeToggle: React.FC<{ className?: string }> = ({
         setTheme(isDarkTheme ? Themes.light : Themes.dark);
       }}
       className={cx(
-        'border-primary border-b-2 border-l-[1px] hover:border-2 focus:border-2 focus:border-secondary-accent inline-flex items-center justify-center p-1 h-14 rounded-full focus:outline-none overflow-hidden scale-75 w-14',
+        'border-primary border-b-2 border-l-[1px] hover:border-2 focus:border-2 focus:border-secondary-accent inline-flex items-center justify-center p-1 h-14 rounded-full focus:outline-none overflow-hidden scale-75',
+        'w-auto md:w-14 mt-auto mb-8 md:mb-0 md:mt-0 py-5 px-4 md:p-1',
         className
       )}
     >
@@ -104,7 +105,7 @@ export const ThemeToggle: React.FC<{ className?: string }> = ({
           </svg>
         </span>
       </div>
-      <span className="ml-4 text-black dark:text-white sr-only">
+      <span className="ml-4 text-xl block capitalize not-sr-only md:sr-only">
         switch to light mode
       </span>
     </button>

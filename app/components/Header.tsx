@@ -89,7 +89,7 @@ export const Header = () => {
         <div
           className={cx(
             'hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0 items-center',
-            { '!flex': mobileActive }
+            { '!flex h-full': mobileActive }
           )}
           id="navbar-collapse"
         >

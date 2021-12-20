@@ -15,7 +15,10 @@ export const NavLink: React.FC<{
       className={cx(
         { 'text-primary active': active },
         'navLink',
-        `block mx-4 my-2 text-center font-semibold text-lg text-secondary-accent hover:text-primary transition`,
+        `mx-4 my-2 py-3 md:py-0 w-full md:w-auto flex md:block border-b md:border-b-0 text-center font-semibold text-xl md:text-lg 
+        text-secondary-accent hover:text-primary transition
+        
+        `,
         className
       )}
     >
