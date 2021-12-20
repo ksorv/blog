@@ -17,6 +17,7 @@ import globalStyles from './styles/global.css';
 import { getSession } from './lib/theme';
 import { GlobalContext, GlobalStateProvider } from './stores/providers';
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 
 export const links: LinksFunction = () => {
   return [
@@ -59,13 +60,6 @@ export const links: LinksFunction = () => {
       rel: 'preload',
       as: 'font',
       href: '/fonts/Nunito900.woff2',
-      type: 'font/woff2',
-      crossOrigin: 'anonymous'
-    },
-    {
-      rel: 'preload',
-      as: 'font',
-      href: '/fonts/Nunito900I.woff2',
       type: 'font/woff2',
       crossOrigin: 'anonymous'
     },
@@ -123,9 +117,10 @@ const Document: React.FC<{ title?: string }> = ({ children, title }) => {
 
 const Layout: React.FC = ({ children }) => {
   return (
-    <div className="w-screen h-screen bg-primary-accent">
+    <div className="w-screen h-screen bg-primary-accent flex flex-col">
       <Header />
-      {children}
+      <div className="flex-grow">{children}</div>
+      <Footer />
     </div>
   );
 };

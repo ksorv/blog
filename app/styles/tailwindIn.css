@@ -17,6 +17,10 @@
     --primary-accent: 19 19 18;
     --secondary-accent: 255 248 242;
   }
+
+  html {
+    @apply text-secondary-accent;
+  }
 }
 
 /* nunito-300 - latin */
@@ -63,13 +67,4 @@
   src: local(''),
       url('/fonts/NunitoI.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
       url('/fonts/NunitoI.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}
-/* nunito-900italic - latin */
-@font-face {
-  font-family: 'Nunito';
-  font-style: italic;
-  font-weight: 900;
-  src: local(''),
-      url('../fonts/Nunito900I.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url('../fonts/Nunito900I.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
