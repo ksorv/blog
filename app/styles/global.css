@@ -33,5 +33,9 @@ body {
   .navLink.active {
     text-decoration: none;
   }
+
+  .navLink {
+    background: none;
+  }
 }
 
