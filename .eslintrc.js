@@ -34,7 +34,8 @@ module.exports = {
     // really?
     'react/function-component-definition': 'off',
 
-    'comma-dangle': 'off'
+    'comma-dangle': 'off',
+    'no-nested-ternary': 'off'
   },
   settings: {
     'import/resolver': {
