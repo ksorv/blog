@@ -18,6 +18,7 @@ import { getSession } from './lib/theme';
 import { GlobalContext, GlobalStateProvider } from './stores/providers';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
+import { cx } from './utils/classnames';
 
 export const links: LinksFunction = () => {
   return [
@@ -119,7 +120,14 @@ const Layout: React.FC = ({ children }) => {
   return (
     <div className="w-screen h-screen bg-primary-accent flex flex-col">
       <Header />
-      <div className="flex-grow">{children}</div>
+      <main
+        className={cx(
+          'flex-grow overflow-y-scroll prose min-w-full',
+          'wrapper'
+        )}
+      >
+        {children}
+      </main>
       <Footer />
     </div>
   );
