@@ -41,7 +41,7 @@ export const Header = () => {
         'h-full fixed w-full bg-primary-accent z-[100]': mobileActive
       })}
     >
-      <div className="container px-4 mx-auto md:flex md:items-center">
+      <div className="max-w-3xl px-4 mx-auto md:flex md:items-center">
         <div className="flex justify-between items-center">
           <Link
             to="/"

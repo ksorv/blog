@@ -5,10 +5,10 @@ export const Footer = () => {
   return (
     <footer
       id="footer"
-      className="relative z-50 text-secondary-accent bg-primary-accent pt-24"
+      className="relative z-50 text-secondary-accent bg-primary-accent pt-12"
     >
-      <div className=" border-t border-b border-b-secondary-accent/20 border-gray-200 dark:border-gray-700 py-8">
-        <div className="mx-auto container px-4 xl:px-12 2xl:px-4">
+      <div className="border-t border-b border-b-secondary-accent/20 border-gray-200 dark:border-gray-700 py-8">
+        <div className="max-w-3xl mx-auto container px-4 xl:px-12 2xl:px-4">
           <div className="flex justify-between">
             <div className="w-full lg:w-1/2 flex">
               <div className="w-full lg:w-1/2">
