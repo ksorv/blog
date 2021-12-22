@@ -11,7 +11,7 @@ export const Footer = () => {
         <div className="mx-auto container px-4 xl:px-12 2xl:px-4">
           <div className="flex justify-between">
             <div className="w-full lg:w-1/2 flex">
-              <div className="w-full lg:w-1/2 px-6">
+              <div className="w-full lg:w-1/2">
                 <ul className="h-full flex flex-col justify-between">
                   <li>
                     <Link
