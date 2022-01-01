@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useMemo } from 'react';
 import { Themes, useThemeToggle } from '~/utils/useThemeToggle';
 
 type ThemeConfigType = {
@@ -12,7 +12,6 @@ const GlobalContext = createContext<ThemeConfigType>({
   setTheme: () => {},
   theme: undefined
 });
-const { Provider } = GlobalContext;
 
 const GlobalStateProvider: React.FC<{ theme?: Themes | undefined }> = ({
   children,
@@ -20,8 +19,14 @@ const GlobalStateProvider: React.FC<{ theme?: Themes | undefined }> = ({
 }) => {
   const { setTheme, isDarkTheme, theme } = useThemeToggle(argTheme);
 
+  const contextValue = useMemo(() => {
+    return { setTheme, isDarkTheme, theme };
+  }, [isDarkTheme, theme]);
+
   return (
-    <Provider value={{ setTheme, isDarkTheme, theme }}>{children}</Provider>
+    <GlobalContext.Provider value={contextValue}>
+      {children}
+    </GlobalContext.Provider>
   );
 };
 
