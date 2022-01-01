@@ -1,9 +1,10 @@
-import { Outlet, useCatch } from 'remix';
+import { Link, Outlet, useCatch } from 'remix';
 
 const Blog: React.FC = () => {
   return (
     <>
       <h1 className="text-red-600">Blog</h1>
+      <Link to="test">Test Post</Link>
       <Outlet />
     </>
   );

@@ -106,7 +106,7 @@ const Document: React.FC<{ title?: string }> = ({ children, title }) => {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-primary-accent">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -118,14 +118,9 @@ const Document: React.FC<{ title?: string }> = ({ children, title }) => {
 
 const Layout: React.FC = ({ children }) => {
   return (
-    <div className="w-screen h-screen bg-primary-accent flex flex-col">
+    <div className="w-screen h-screen flex flex-col">
       <Header />
-      <main
-        className={cx(
-          'flex-grow overflow-y-scroll prose min-w-full',
-          'wrapper'
-        )}
-      >
+      <main className={cx('flex-grow overflow-y-scroll min-w-full')}>
         {children}
       </main>
       <Footer />
