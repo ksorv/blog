@@ -24,6 +24,10 @@ export const Header = () => {
   const [mobileActive, setMobileActive] = useState(false);
   const location = useLocation();
 
+  useEffect(() => {
+    setMobileActive(false);
+  }, [location]);
+
   const handleMediaQueryChange = () => {
     if (window.matchMedia('(min-width: 640px)').matches) {
       setMobileActive(false);
