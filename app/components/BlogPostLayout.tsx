@@ -4,8 +4,8 @@ export const BlogPostLayout: React.FC = ({ children }) => {
   return (
     <main
       className={cx(
-        'flex-grow overflow-y-scroll prose min-w-full text-secondary-accent',
-        'wrapper'
+        'flex-grow overflow-y-scroll prose dark:prose-invert prose-indigo prose-stone prose-sm md:prose-base lg:prose-lg min-w-full prose-h1:font-extrabold',
+        'wrapper post'
       )}
     >
       {children}
