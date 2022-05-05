@@ -41,9 +41,12 @@ export const Header = () => {
 
   return (
     <nav
-      className={cx('py-8 md:py-6', {
-        'h-full fixed w-full bg-primary-accent z-[100]': mobileActive
-      })}
+      className={cx(
+        'py-8 md:pt-6 md:pb-4 [--tw-bg-opacity:0.8] bg-primary-accent backdrop-blur-[8px] shadow-md shadow-[color:var(--primary)] sticky top-0',
+        {
+          'h-full fixed w-full bg-primary-accent z-[100]': mobileActive
+        }
+      )}
     >
       <div className="max-w-3xl px-4 mx-auto md:flex md:items-center">
         <div className="flex justify-between items-center">

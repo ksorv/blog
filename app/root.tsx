@@ -120,7 +120,13 @@ const Layout: React.FC = ({ children }) => {
   return (
     <div className="w-screen h-screen flex flex-col">
       <Header />
-      <main className={cx('flex-grow overflow-y-scroll min-w-full')}>
+      <main
+        className={cx(
+          'my-6',
+          'prose dark:prose-invert prose-indigo prose-stone prose-sm md:prose-base lg:prose-lg min-w-full prose-h1:font-extrabold',
+          'wrapper'
+        )}
+      >
         {children}
       </main>
       <Footer />
