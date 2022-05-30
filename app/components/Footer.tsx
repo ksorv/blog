@@ -50,7 +50,7 @@ export const Footer = () => {
                   <p className="font-bold capitalize text-base">KSORV</p>
                 </Link>
                 <div className="flex items-center justify-between mt-3 w-full">
-                  <a href="/twitter">
+                  <a href="/github">
                     <div className="cursor-pointer">
                       <svg
                         className="hover:stroke-primary"
