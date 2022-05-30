@@ -1,8 +1,12 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 const getColor =
   (colorCode) =>
-  ({ opacityVariable }) =>
+  ({ opacityVariable, opacityValue }) =>
     opacityVariable
       ? `rgba(var(--${colorCode}) / var(${opacityVariable}))`
+      : opacityValue
+      ? `rgba(var(--${colorCode}) / ${opacityValue})`
       : `rgba(var(--${colorCode}) / 1)`;
 
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
@@ -10,14 +14,23 @@ module.exports = {
   darkMode: 'class',
   content: ['./app/**/*.tsx'],
   theme: {
-    colors: {
-      primary: getColor('primary'),
-      secondary: getColor('secondary'),
-      tertiary: getColor('tertiary'),
-      'primary-accent': getColor('primary-accent'),
-      'secondary-accent': getColor('secondary-accent')
+    screens: {
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1440px'
     },
-    extend: {}
+    extend: {
+      colors: {
+        primary: getColor('primary'),
+        'primary-accent': getColor('primary-accent'),
+        'secondary-accent': getColor('secondary-accent')
+      },
+      fontFamily: {
+        sans: ['Nunito', ...defaultTheme.fontFamily.sans]
+      }
+    }
   },
-  plugins: []
+  // eslint-disable-next-line global-require
+  plugins: [require('@tailwindcss/typography')]
 };

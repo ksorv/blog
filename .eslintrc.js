@@ -34,7 +34,8 @@ module.exports = {
     // really?
     'react/function-component-definition': 'off',
 
-    'comma-dangle': 'off'
+    'comma-dangle': 'off',
+    'no-nested-ternary': 'off'
   },
   settings: {
     'import/resolver': {
@@ -88,6 +89,7 @@ module.exports = {
 
         'react/function-component-definition': 'off',
         'import/no-unresolved': 'off',
+        'react/require-default-props': 'off',
 
         // I cant figure this out
         'import/extensions': 'off'

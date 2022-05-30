@@ -1,27 +1,32 @@
-import React, { createContext } from 'react';
+import React, { createContext, useMemo } from 'react';
 import { Themes, useThemeToggle } from '~/utils/useThemeToggle';
 
 type ThemeConfigType = {
   isDarkTheme: boolean;
   setTheme: (theme: Themes) => void;
-  theme: Themes;
+  theme: Themes | undefined;
 };
 
 const GlobalContext = createContext<ThemeConfigType>({
-  isDarkTheme: true,
+  isDarkTheme: false,
   setTheme: () => {},
-  theme: Themes.dark
+  theme: undefined
 });
-const { Provider } = GlobalContext;
 
-const GlobalStateProvider: React.FC<{ theme: Themes }> = ({
+const GlobalStateProvider: React.FC<{ theme?: Themes | undefined }> = ({
   children,
   theme: argTheme
 }) => {
   const { setTheme, isDarkTheme, theme } = useThemeToggle(argTheme);
 
+  const contextValue = useMemo(() => {
+    return { setTheme, isDarkTheme, theme };
+  }, [isDarkTheme, theme]);
+
   return (
-    <Provider value={{ setTheme, isDarkTheme, theme }}>{children}</Provider>
+    <GlobalContext.Provider value={contextValue}>
+      {children}
+    </GlobalContext.Provider>
   );
 };
 

@@ -15,13 +15,69 @@ import { useContext } from 'react';
 import tailwindStyles from './styles/tailwindOut.css';
 import globalStyles from './styles/global.css';
 import { getSession } from './lib/theme';
-import { Themes } from './utils/useThemeToggle';
 import { GlobalContext, GlobalStateProvider } from './stores/providers';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import { cx } from './utils/classnames';
 
 export const links: LinksFunction = () => {
   return [
     { rel: 'stylesheet', href: tailwindStyles },
-    { rel: 'stylesheet', href: globalStyles }
+    { rel: 'stylesheet', href: globalStyles },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      href: '/favicons/apple-touch-icon.png'
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '32x32',
+      href: '/favicons/favicon-32x32.png'
+    },
+    {
+      rel: 'icon',
+      type: 'image/png',
+      sizes: '16x16',
+      href: '/favicons/favicon-16x16.png'
+    },
+    { rel: 'manifest', href: '/site.webmanifest' },
+    { rel: 'icon', href: '/favicon.ico' },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '/fonts/Nunito300.woff2',
+      type: 'font/woff2',
+      crossOrigin: 'anonymous'
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '/fonts/Nunito700.woff2',
+      type: 'font/woff2',
+      crossOrigin: 'anonymous'
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '/fonts/Nunito900.woff2',
+      type: 'font/woff2',
+      crossOrigin: 'anonymous'
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '/fonts/NunitoI.woff2',
+      type: 'font/woff2',
+      crossOrigin: 'anonymous'
+    },
+    {
+      rel: 'preload',
+      as: 'font',
+      href: '/fonts/NunitoR.woff2',
+      type: 'font/woff2',
+      crossOrigin: 'anonymous'
+    }
     // {
     //   rel: "stylesheet",
     //   href: darkStylesUrl,
@@ -40,9 +96,9 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 const Document: React.FC<{ title?: string }> = ({ children, title }) => {
-  const globalState = useContext(GlobalContext);
+  const { theme } = useContext(GlobalContext);
   return (
-    <html lang="en" className={globalState.theme}>
+    <html lang="en" className={theme}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -50,7 +106,7 @@ const Document: React.FC<{ title?: string }> = ({ children, title }) => {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-primary-accent">
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -61,21 +117,38 @@ const Document: React.FC<{ title?: string }> = ({ children, title }) => {
 };
 
 const Layout: React.FC = ({ children }) => {
-  return <div className="w-full h-full bg-primary-accent">{children}</div>;
+  return (
+    <div className="w-screen h-screen flex flex-col">
+      <Header />
+      <main
+        className={cx(
+          'my-6',
+          'prose dark:prose-invert prose-indigo prose-stone prose-sm md:prose-base lg:prose-lg min-w-full prose-h1:font-extrabold',
+          'wrapper'
+        )}
+      >
+        {children}
+      </main>
+      <Footer />
+    </div>
+  );
 };
 
 const ErrorBoundary: React.FC<{ error: Error }> = ({ error }) => {
+  console.error(error);
   return (
-    <Document title="Error!">
-      <Layout>
-        <div>
-          <h1>Error!</h1>
-          <p>{error.message}</p>
-          <hr />
-          <p>Hold my beer... I&apos;m fixin&apos; it.</p>
-        </div>
-      </Layout>
-    </Document>
+    <GlobalStateProvider>
+      <Document title="Error!">
+        <Layout>
+          <div>
+            <h1>Error!</h1>
+            <p>{error.message}</p>
+            <hr />
+            <p>Hold my beer... I&apos;m fixin&apos; it.</p>
+          </div>
+        </Layout>
+      </Document>
+    </GlobalStateProvider>
   );
 };
 
@@ -95,14 +168,16 @@ const CatchBoundary: React.FC = () => {
   }
 
   return (
-    <Document title={`${caught.status} ${caught.statusText}`}>
-      <Layout>
-        <h1>
-          {caught.status}: {caught.statusText}
-        </h1>
-        {message}
-      </Layout>
-    </Document>
+    <GlobalStateProvider>
+      <Document title={`${caught.status} ${caught.statusText}`}>
+        <Layout>
+          <h1>
+            {caught.status}: {caught.statusText}
+          </h1>
+          {message}
+        </Layout>
+      </Document>
+    </GlobalStateProvider>
   );
 };
 

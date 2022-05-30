@@ -1,9 +1,11 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { cx } from '~/utils/classnames';
 import { GlobalContext } from '~/stores/providers';
 import { Themes } from '~/utils/useThemeToggle';
 
-export const ThemeToggle: React.FC = () => {
+export const ThemeToggle: React.FC<{ className?: string }> = ({
+  className
+}) => {
   const { setTheme, isDarkTheme } = useContext(GlobalContext);
 
   return (
@@ -11,11 +13,15 @@ export const ThemeToggle: React.FC = () => {
       onClick={() => {
         setTheme(isDarkTheme ? Themes.light : Themes.dark);
       }}
-      className="border-secondary hover:border-primary focus:border-primary inline-flex items-center justify-center p-1 h-14 border-2 rounded-full focus:outline-none overflow-hidden transition w-14"
+      className={cx(
+        'border-r-[transparent] border-r-2 border-t-[transparent] border-t-2 border-primary border-b-2 !border-l-[1px] hover:!border-2 hover:border-primary focus:border-secondary-accent inline-flex items-center justify-center p-1 h-14 rounded-full focus:outline-none overflow-hidden scale-75',
+        'w-auto md:w-14 mt-auto mb-8 md:mb-0 md:mt-0 py-5 px-4 md:p-1 transition duration-200',
+        className
+      )}
     >
       <div className={cx('relative w-8 h-8')}>
         <span
-          className="motion-reduce:duration-[0s] absolute inset-0 text-black dark:text-white transform dark:rotate-0 rotate-90 transition duration-1000"
+          className="motion-reduce:duration-[0s] absolute inset-0 text-secondary-accent transform dark:rotate-0 rotate-90 transition duration-1000"
           style={{ transformOrigin: '50% 100px' }}
         >
           <svg
@@ -33,7 +39,7 @@ export const ThemeToggle: React.FC = () => {
           </svg>
         </span>
         <span
-          className="motion-reduce:duration-[0s] absolute inset-0 text-black dark:text-white transform dark:-rotate-90 rotate-0 transition duration-1000"
+          className="motion-reduce:duration-[0s] absolute inset-0 text-secondary-accent transform dark:-rotate-90 rotate-0 transition duration-1000"
           style={{ transformOrigin: '50% 100px' }}
         >
           <svg
@@ -99,7 +105,7 @@ export const ThemeToggle: React.FC = () => {
           </svg>
         </span>
       </div>
-      <span className="ml-4 text-black dark:text-white sr-only">
+      <span className="ml-4 text-xl block capitalize not-sr-only md:sr-only">
         switch to light mode
       </span>
     </button>

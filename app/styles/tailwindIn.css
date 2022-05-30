@@ -1,21 +1,70 @@
+/* purgecss start ignore */
 @tailwind base;
 @tailwind components;
+/* purgecss end ignore */
+
 @tailwind utilities;
 
 @layer base {
   :root {
-    --primary: 79 70 229;
-    --secondary: 229 195 70;
-    --tertiary: 229 115 70;
-    --primary-accent: 245 245 245;
-    --secondary-accent: 12 20 30;
+    --primary: 148 12 12;
+    --primary-accent: 255 248 242;
+    --secondary-accent: 19 19 18;
+  }
+  
+  .dark {
+    --primary: 229 115 70;
+    --primary-accent: 19 19 18;
+    --secondary-accent: 255 248 242;
   }
 
-  .dark {
-    --primary: 79 70 229;
-    --secondary: 229 195 70;
-    --tertiary: 229 115 70;
-    --primary-accent: 12 20 30;
-    --secondary-accent: 245 245 245;
+  html {
+    @apply text-secondary-accent;
   }
+}
+
+/* nunito-300 - latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''),
+      url('/fonts/Nunito300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/Nunito300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* nunito-regular - latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+      url('/fonts/NunitoR.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/NunitoR.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* nunito-700 - latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+      url('/fonts/Nunito700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/Nunito700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* nunito-900 - latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 900;
+  src: local(''),
+      url('/fonts/Nunito900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/Nunito900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* nunito-italic - latin */
+@font-face {
+  font-family: 'Nunito';
+  font-style: italic;
+  font-weight: 400;
+  src: local(''),
+      url('/fonts/NunitoI.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('/fonts/NunitoI.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
