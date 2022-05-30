@@ -12,7 +12,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center text-primary/100">
-      Being rebuilt with Remix, TypeScript, Netlify & Tailwind(probably).
+      Being rebuilt with Remix, TypeScript, Cloudfare & Tailwind.
     </div>
   );
 }
