@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useFetcher } from 'remix';
+import { useFetcher } from '@remix-run/react';
 
 export enum Themes {
   light = 'light',

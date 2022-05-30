@@ -1,4 +1,5 @@
-import { MetaFunction, useCatch } from 'remix';
+import { useCatch } from '@remix-run/react';
+import { MetaFunction } from '@remix-run/cloudflare';
 
 export const meta: MetaFunction = () => {
   return {

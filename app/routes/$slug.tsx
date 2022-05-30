@@ -1,4 +1,5 @@
-import { json, LoaderFunction, useCatch } from 'remix';
+import { json, LoaderFunction } from '@remix-run/cloudflare';
+import { useCatch } from '@remix-run/react';
 
 export const handle = {
   getSitemapEntries: async () => null

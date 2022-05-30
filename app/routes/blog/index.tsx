@@ -1,4 +1,4 @@
-import { Link, Outlet, useCatch } from 'remix';
+import { Link, Outlet, useCatch } from '@remix-run/react';
 
 const Blog: React.FC = () => {
   return (

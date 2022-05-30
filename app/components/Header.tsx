@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'remix';
+import { Link, useLocation } from '@remix-run/react';
 import { cx } from '~/utils/classnames';
 import { Logo } from './Logo';
 import { NavLink } from './NavLink/NavLink';

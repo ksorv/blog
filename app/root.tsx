@@ -1,16 +1,14 @@
 import {
-  json,
   Links,
   LiveReload,
-  LoaderFunction,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
   useCatch,
   useLoaderData
-} from 'remix';
-import type { LinksFunction } from 'remix';
+} from '@remix-run/react';
+import { LoaderFunction, json, LinksFunction } from '@remix-run/cloudflare';
 import { useContext } from 'react';
 import tailwindStyles from './styles/tailwindOut.css';
 import globalStyles from './styles/global.css';
