@@ -28,7 +28,6 @@
   "scripts": {
     "prepare": "husky install",
     "dev:remix": "remix watch",
-    "postinstall": "remix setup cloudfare-pages",
     "dev:wrangler": "cross-env NODE_ENV=development wrangler pages dev ./public",
     "dev:tailwind": "tailwindcss -i ./app/styles/tailwindIn.css -o ./app/styles/tailwindOut.css --watch",
     "dev": "remix build && concurrently --kill-others --names 'REMIX,WRANGLER,TAILWIND' -c 'cyan.bold,blue.bold,yellow.bold' \"npm run dev:remix\" \"npm run dev:wrangler\" \"npm run dev:tailwind\"",
