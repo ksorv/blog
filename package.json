@@ -44,6 +44,7 @@
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "storybook": "cross-env TS_NODE_PROJECT=.storybook/tsconfig.json start-storybook -p 3002",
     "build-storybook": "build-storybook",
+    "postinstall": "remix setup node",
     "deploy": "fly deploy --remote-only"
   },
   "dependencies": {
