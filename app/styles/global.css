@@ -1,0 +1,66 @@
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Main Content Style Wrapper */
+.wrapper {
+  display: grid;
+  grid-template-columns:
+    1fr
+    min(65ch, calc(100% - 48px))
+    1fr;
+}
+
+.wrapper > * {
+  grid-column: 2;
+}
+
+.full-bleed {
+  width: 100%;
+  grid-column: 1 / -1;
+}
+
+.underlined {
+  position: relative;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+
+.underlined:focus {
+  outline: none;
+  text-decoration: none !important;
+}
+
+.underlined:after {
+  content: '';
+  height: 2px;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+  transform-origin: left;
+  left: 50%;
+  bottom: -3px;
+  width: 100%;
+  display: block;
+  position: absolute;
+}
+
+.underlined:hover:after,
+.underlined:focus:after,
+.active.underlined:after {
+  background-color: currentColor;
+  transform: scaleX(1) translateX(-50%);
+}
+
+@media (prefers-reduced-motion) {
+  .underlined:after {
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .underlined:hover:after,
+  .underlined:focus:after,
+  .active.underlined:after {
+    opacity: 1;
+  }
+}
