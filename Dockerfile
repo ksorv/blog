@@ -31,16 +31,9 @@ WORKDIR /myapp
 
 COPY --from=deps /myapp/node_modules /myapp/node_modules
 
-ADD prisma .
-RUN npx prisma generate
-
 ADD . .
 RUN npm run postinstall
 RUN npm run build
-
-# Run migrations
-ARG DATABASE_URL
-RUN npm run deploy:db
 
 # Finally, build the production image with minimal footprint
 FROM base
