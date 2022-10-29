@@ -1,5 +1,5 @@
 # base node image
-FROM node:19-bullseye-slim as base
+FROM node:18-bullseye-slim as base
 
 # set for base and all layer that inherit from it
 ENV NODE_ENV production
@@ -13,7 +13,7 @@ FROM base as deps
 WORKDIR /myapp
 
 ADD package.json package-lock.json ./
-RUN npm install
+RUN npm install --production=false
 
 # Setup production node_modules
 FROM base as production-deps
