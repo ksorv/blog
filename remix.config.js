@@ -2,14 +2,7 @@
 module.exports = {
   ignoredRouteFiles: ["**/.*"],
   serverDependenciesToBundle: [
-    'remark-gfm',
-    /micromark-.*/,
-    /mdast-.*/,
-    'ccount',
-    /unist-.*/,
-    'decode-named-character-reference',
-    'character-entities',
-    'markdown-table'
+    'mdx-bundler'
   ]
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",

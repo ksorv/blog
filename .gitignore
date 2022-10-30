@@ -10,7 +10,7 @@
 /functions/
 /functions/\[\[path\]\].js.map
 /public/build
-/public/data
+/public
 .env
 
 /api/
