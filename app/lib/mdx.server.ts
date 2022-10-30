@@ -4,6 +4,27 @@ import path from 'path';
 import { FrontMatter } from '../types/blog';
 import { Post } from '~/types/blog';
 
+function fixEsbuildBinaryError() {
+  if (process.platform === 'win32') {
+    process.env.ESBUILD_BINARY_PATH = path.join(
+      process.cwd(),
+      'node_modules',
+      'esbuild',
+      'esbuild.exe',
+    )
+  } else {
+    process.env.ESBUILD_BINARY_PATH = path.join(
+      process.cwd(),
+      'node_modules',
+      'esbuild',
+      'bin',
+      'esbuild',
+    )
+  }
+}
+
+fixEsbuildBinaryError();
+
 const root = process.env.NODE_ENV === 'production' ? __dirname : process.cwd();
 
 const dataDir =
