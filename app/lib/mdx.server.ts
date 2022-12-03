@@ -25,7 +25,7 @@ function fixEsbuildBinaryError() {
 
 fixEsbuildBinaryError();
 
-const root = process.env.NODE_ENV === 'production' ? __dirname : process.cwd();
+const root = process.env.NODE_ENV === 'production' ? `${__dirname}/../` : process.cwd();
 
 
 const dataDir = path.join(root, 'data');
@@ -58,7 +58,7 @@ export const getFileBySlug = async (
     : path.join(dataDir, type);
 
   const { code, errors, frontmatter } = await bundleMDX({
-    file: filePath
+    file: server ? filePath : `${filePath}.mdx`
   });
 
   return {
@@ -78,8 +78,6 @@ export const getAllFilesFrontMatter = async (type: string) => {
     fileDir,
     { withFileTypes: true }
   );
-
-  console.log(files)
 
   return Promise.all(
     files.map((postDirent: Dirent) => {
