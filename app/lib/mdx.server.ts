@@ -1,5 +1,5 @@
 import { bundleMDX } from 'mdx-bundler';
-import fs from 'fs';
+import fs, { Dirent } from 'fs';
 import path from 'path';
 import { FrontMatter } from '../types/blog';
 import { Post } from '~/types/blog';
@@ -27,10 +27,8 @@ fixEsbuildBinaryError();
 
 const root = process.env.NODE_ENV === 'production' ? __dirname : process.cwd();
 
-const dataDir =
-  process.env.NODE_ENV === 'production'
-    ? path.join(root, '../../public/data')
-    : path.join(root, 'data');
+
+const dataDir = path.join(root, 'data');
 
 if (process.platform === 'win32') {
   process.env.ESBUILD_BINARY_PATH = path.join(
@@ -60,7 +58,7 @@ export const getFileBySlug = async (
     : path.join(dataDir, type);
 
   const { code, errors, frontmatter } = await bundleMDX({
-    file: server ? filePath : `${filePath}.mdx`
+    file: filePath
   });
 
   return {
@@ -74,9 +72,18 @@ export const getFileBySlug = async (
 };
 
 export const getAllFilesFrontMatter = async (type: string) => {
-  const files = fs.readdirSync(path.join(dataDir, type));
+  const fileDir = path.join(dataDir, type);
+
+  const files = await fs.readdirSync(
+    fileDir,
+    { withFileTypes: true }
+  );
+
+  console.log(files)
 
   return Promise.all(
-    files.map((postSlug: string) => getFileBySlug({ type, slug: postSlug, server: true }))
+    files.map((postDirent: Dirent) => {
+      return getFileBySlug({ type, slug: postDirent.name, server: true })
+    })
   );
 };
