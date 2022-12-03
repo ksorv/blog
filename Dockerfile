@@ -7,6 +7,12 @@ ENV NODE_ENV production
 # Install openssl for Prisma
 RUN apt-get update && apt-get install -y openssl
 
+# set for base and all layer that inherit from it
+ENV NODE_ENV production
+
+# Install openssl for Prisma
+RUN apt-get update && apt-get install -y openssl
+
 # Install all node_modules, including dev dependencies
 FROM base as deps
 
@@ -40,6 +46,7 @@ FROM base
 
 WORKDIR /myapp
 
+COPY --from=data /myapp/data /myapp/data
 COPY --from=production-deps /myapp/node_modules /myapp/node_modules
 
 COPY --from=build /myapp/build /myapp/build
