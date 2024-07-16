@@ -14,13 +14,13 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } =
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="w-full h-full">
   <head>
     <BaseHead title={title} description={description} />
   </head>
-  <body class="bg-background text-foreground antialiased">
+  <body class="bg-background text-foreground antialiased w-full h-full flex flex-col">
     <Header />
-    <main>
+    <main class="max-w-[96ch] py-8 px-6 mx-auto grow">
       <slot />
     </main>
     <Footer />
