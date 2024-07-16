@@ -1,48 +1,207 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { Button } from "@/components/ui/button";
 import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout>
-  <h1>🧑‍🚀 Hello, Astronaut!</h1>
-  <p>
-    Welcome to the official <a href="https://astro.build/">Astro</a> blog starter
-    template. This template serves as a lightweight, minimally-styled starting point
-    for anyone looking to build a personal website, blog, or portfolio with Astro.
-  </p>
-  <p>
-    This template comes with a few integrations already configured in your
-    <code>astro.config.mjs</code> file. You can customize your setup with
-    <a href="https://astro.build/integrations">Astro Integrations</a> to add tools
-    like Tailwind, React, or Vue to your project.
-  </p>
-  <p>Here are a few ideas on how to get started with the template:</p>
-  <ul>
-    <li>Edit this page in <code>src/pages/index.astro</code></li>
-    <li>
-      Edit the site header items in <code>src/components/Header.astro</code>
-    </li>
-    <li>
-      Add your name to the footer in <code>src/components/Footer.astro</code>
-    </li>
-    <li>Check out the included blog posts in <code>src/content/blog/</code></li>
-    <li>
-      Customize the blog post page layout in <code
-        >src/layouts/BlogPost.astro</code>
-    </li>
-  </ul>
-  <p>
-    Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-      >read the docs
-    </a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-  </p>
-  <p>
-    Looking for a blog template with a bit more personality? Check out <a
-      href="https://github.com/Charca/astro-blog-template"
-      >astro-blog-template
-    </a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-  </p>
+  <div
+    class="h-full w-full flex flex-col items-start justify-center gap-4 relative"
+  >
+    <h1
+      class="text-3xl sm:text-6xl font-bold name-title"
+    >
+      Hello, Saurav here!
+    </h1>
+    <div class="text-lg flex flex-col gap-2 sm:text-left">
+      <p>
+        I am a fullstack engineer who loves frontend, and creating awesome
+        experiences online. I have 4+ years of experience working with startups
+        of varying team sizes and product types.
+      </p>
+      <p>
+        I have created products like <a
+          class="underline"
+          target="_blank"
+          href="https://doubletick.io">DoubleTick</a
+        > from scratch, optmized <a
+          class="underline"
+          target="_blank"
+          href="https://zkx.fi">trading platforms</a
+        > bringing in millions of dollars in revenue for different companies. If
+        my experiences or future goals interest you, lets connect on <a
+          class="underline"
+          href="https://x.com/sorvkay"
+          target="_blank">@twitter</a
+        >.
+      </p>
+      <p>If you want to talk about projects or hiring</p>
+      <div>
+        <a href="https://x.com/sorvkay" target="_blank"
+          ><Button className="min-w-fit mt-3 mr-2">Twitter</Button></a
+        >
+        <a href="/public/docs/Saurav-Kumar-Resume.pdf" target="_blank"
+          ><Button>Check Resume</Button></a
+        >
+      </div>
+    </div>
+    <h1
+      class="text-3xl mt-8 sm:text-6xl font-bold"
+    >
+      Experience
+    </h1>
+    <div class="p-6 sm:p-10">
+      <div
+        class="relative pl-6 grid gap-10 after:absolute after:inset-y-0 after:w-px after:bg-muted-foreground/20 after:left-0"
+      >
+        <div class="grid gap-1 text-sm relative">
+          <div
+            class="aspect-square w-3 bg-primary rounded-full absolute left-0 translate-x-[-29.5px] z-10 top-1"
+          >
+          </div>
+          <div class="font-medium">Jan, 2024 - Present | Frontend Engineer</div>
+          <div class="text-muted-foreground">
+            <a href="#" class="font-medium hover:underline">ZKX </a>
+            <span> - London, UK | Remote</span>
+          </div>
+          <div class="text-muted-foreground">
+            Build referrals, airdrop and staking programs using L1, L2, L3 rpcs
+            and contracts<br />
+            Created multiple accounts on custom starknet account <br />
+            Optimized the orderbook to reduce render times by 60%
+          </div>
+        </div>
+        <div class="grid gap-1 text-sm relative">
+          <div
+            class="aspect-square w-3 bg-primary rounded-full absolute left-0 translate-x-[-29.5px] z-10 top-1"
+          >
+          </div>
+          <div class="font-medium">
+            Mar, 2023 - Jan, 2024 | Full Stack Engineer
+          </div>
+          <div class="text-muted-foreground">
+            <a href="#" class="font-medium hover:underline">Quicksell</a>
+            <span> - Mumbai, India</span>
+          </div>
+          <div class="text-muted-foreground">
+            Created the payment and invoice services to bring in $3 million <br
+            />
+            Developed end to end CRM for sales team to increase revenue by 70%
+          </div>
+        </div>
+        <div class="grid gap-1 text-sm relative">
+          <div
+            class="aspect-square w-3 bg-primary rounded-full absolute left-0 translate-x-[-29.5px] z-10 top-1"
+          >
+          </div>
+          <div class="font-medium">
+            Aug, 2022 - Mar, 2023 | Frontend Engineer
+          </div>
+          <div class="text-muted-foreground">
+            <a href="#" class="font-medium hover:underline"> Quicksell </a>
+            <span> - Mumbai, India</span>
+          </div>
+          <div class="text-muted-foreground">
+            Led the development of a large-scale product Doubletick using React <br
+            />
+            Hired, mentored and led a team of three developers
+          </div>
+        </div>
+        <div class="grid gap-1 text-sm relative">
+          <div
+            class="aspect-square w-3 bg-primary rounded-full absolute left-0 translate-x-[-29.5px] z-10 top-1"
+          >
+          </div>
+          <div class="font-medium">
+            Jan, 2021 - Jul, 2022 | Technical Staff [Frontend Engineer]
+          </div>
+          <div class="text-muted-foreground">
+            <a href="#" class="font-medium hover:underline"> Mason </a>
+            <span> - Bangalore, India | Remote</span>
+          </div>
+          <div class="text-muted-foreground">
+            Created Automaion and social media connectors for Mason. <br />
+            Ported legacy React app to React 16. Optmized app to reduce size by 40%
+            <br />
+          </div>
+        </div>
+        <div class="grid gap-1 text-sm relative">
+          <div
+            class="aspect-square w-3 bg-primary rounded-full absolute left-0 translate-x-[-29.5px] z-10 top-1"
+          >
+          </div>
+          <div class="font-medium">B. Tech. in Electrical</div>
+          <div class="text-muted-foreground">
+            <a href="#" class="font-medium hover:underline"> IIT Kanpur </a>
+            <span> - Kanpue, India</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="scroll-arrow-container hidden bg-slate-200 rounded-full p-8 backdrop-blur-md shadow items-end absolute bottom-8"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="scroll-arrow"
+        ><path d="M8 18L12 22L16 18"></path><path d="M12 2V22"></path></svg
+      >
+    </div>
+  </div>
 </Layout>
+
+<script>
+  // const title = document.getElementsByClass("name-title");
+  // gsap.to(title, {
+  //   delay: 1,
+  //   duration: 6,
+  //   text: "Hot stuff coming soon!",
+  // });
+
+  // function animateArrowContainer() {
+  //   const scrollArrowContainer = document.getElementsByClass(
+  //     "scroll-arrow-container"
+  //   );
+  //   gsap.fromTo(
+  //     scrollArrowContainer,
+  //     { scale: 1, duration: 1 },
+  //     {
+  //       scale: 1.2,
+  //       duration: 1,
+  //       repeat: 1,
+  //       yoyo: true,
+  //       onComplete: animateArrowContainer,
+  //       yoyoEase: true,
+  //     }
+  //   );
+  // }
+
+  // function animateArrow() {
+  //   const scrollArrow = document.getElementsByClass("scroll-arrow");
+
+  //   gsap.fromTo(
+  //     scrollArrow,
+  //     { y: 0, scale: 1, duration: 1 },
+  //     {
+  //       y: 20,
+  //       scale: 1.2,
+  //       duration: 1,
+  //       repeat: 1,
+  //       onComplete: animateArrow,
+  //       yoyo: true,
+  //       yoyoEase: true,
+  //       rotateX: -60,
+  //     }
+  //   );
+  // }
+
+  // animateArrow();
+  // animateArrowContainer();
+</script>

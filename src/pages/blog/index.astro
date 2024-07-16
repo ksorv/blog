@@ -1,14 +1,10 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import Layout from "@/layouts/Layout.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.date.valueOf() - b.data.date.valueOf()
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
 ---
 
@@ -17,13 +13,28 @@ const posts = (await getCollection("blog")).sort(
     <ul>
       {
         posts.map((post) => (
-          <li>
-            <a href={`/blog/${post.slug}/`}>
-              <img width={720} height={360} src={post.data.heroImage} alt="" />
-              <h4 class="title">{post.data.title}</h4>
-              <p class="date">
-                <FormattedDate date={post.data.date} />
-              </p>
+          <li class="relative mb-10 mt-4">
+            <a href={`/blog/${post.slug}/`} class=" flex flex-col items-center justify-center">
+              <div class="relative flex flex-col gap-4">
+                {post.data.featured && (
+                  <span class="absolute top-4 left-4 bg-white p-1 px-2 text-black rounded">
+                    Featured
+                  </span>
+                )}
+                <img
+                  width={720}
+                  height={360}
+                  src={post.data.heroImage}
+                  alt=""
+                  class="rounded-md shadow-md"
+                />
+                <div class="flex flex-col gap-2">
+                  <h4 class="title text-xl sm:text-4xl font-bold text-wrap">{post.data.title}</h4>
+                  <p class="date text-sm sm:text-lg">
+                    Written On: <FormattedDate date={post.data.date} />
+                  </p>
+                </div>
+              </div>
             </a>
           </li>
         ))

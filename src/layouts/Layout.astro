@@ -1,8 +1,9 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import ScriptsHead from "@/components/ScriptsHead.astro";
 
 interface LayoutProps {
   title?: string;
@@ -17,10 +18,11 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } =
 <html lang="en" class="w-full h-full">
   <head>
     <BaseHead title={title} description={description} />
+    <ScriptsHead />
   </head>
   <body class="bg-background text-foreground antialiased w-full h-full flex flex-col">
     <Header />
-    <main class="max-w-[96ch] py-8 px-6 mx-auto grow">
+    <main class="max-w-[96ch] w-full py-8 px-6 mx-auto grow">
       <slot />
     </main>
     <Footer />
