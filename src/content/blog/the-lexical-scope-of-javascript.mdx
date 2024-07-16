@@ -38,11 +38,11 @@ So, What is lexical scope in here! Let's break it down.
   * The Compiler checks in with current Scope Manager(of function), if there is a `greeting` declaration.
   * Then, Compiler checks for call, but
 
-    The functions Scope Manager says: I don't know bruh, Who's this? Ask big brother global Scope Manager!
+    * The functions Scope Manager says: I don't know bruh, Who's this? Ask big brother global Scope Manager!
 
-    Compiler asks global Scope manager, it replies with **Yes!, I've call already declared**.
+    * Compiler asks global Scope manager, it replies with **Yes!, I've call already declared**.
 
-    This is lexing, The `call` declaration is available to function's Scope Manager through `lexical scope`.
+    * This is lexing, The `call` declaration is available to function's Scope Manager through `lexical scope`.
   * **Lexical Scope** is nothing too complicated(assume it!), It is just the Scope that is determined during the compilation and is available from outer to inner scopes. e.g, Global scope is available to every scope, so on and so forth.
 * Compiler then comes to the `Greet("Saurav")` statement. Checks Greet, it's declared and Compilers compiles the code to AST.
 
@@ -50,7 +50,7 @@ So, What is lexical scope in here! Let's break it down.
 
 There are more steps, but let's not discuss them now. I think you get what lexical scope is?
 
-If still, You've got some doubts? Let's discuss them, Tweet [@sauravkhdoolia](https://twitter.com/sauravkhdoolia)
+If still, You've got some doubts? Let's discuss them, Tweet [@sauravkhdoolia](https://twitter.com/sorvkay)
 
 ### Resources:
 
@@ -58,4 +58,4 @@ If still, You've got some doubts? Let's discuss them, Tweet [@sauravkhdoolia](ht
 
 \---
 
-You're reading this post on The Vision project. Please report any issues [here](https://github.com/sauravkhdoolia/sauravk.vision/issues/new)
+Please report any issues [here](https://github.com/ksorv/blog/issues/new)

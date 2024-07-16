@@ -1,20 +1,44 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
 }
-type Props = CollectionEntry<'blog'>;
+type Props = CollectionEntry<"blog">;
 
-const post = Astro.props;
-const { Content } = await post.render();
+const {
+  data: { date, description, tags, title, featured, heroImage, updatedDate },
+  render,
+} = Astro.props;
+const { Content } = await render();
 ---
 
-<BlogPost {...post.data}>
-	<Content />
-</BlogPost>
+<Layout title={title} description={description}>
+  <div class="w-full">
+    <img src={heroImage} alt={title} class="rounded-md mx-auto w-full" />
+    <h1 class="text-xl sm:text-4xl font-bold text-wrap mt-4 mb-2">{title}</h1>
+    <div class="flex flex-col items-start justify-center gap-2">
+			<p class="ml-0">Written on: <FormattedDate date={date} /></p>
+      {
+        tags.length && (
+          <div class="mt-4 mb-2 flex flex-row flex-wrap gap-4">
+            {tags.map((tag) => (
+              <span class="bg-foreground text-background rounded py-1 px-2 text-sm">
+                {tag}
+              </span>
+            ))}
+          </div>
+        )
+      }
+    </div>
+  </div>
+  <article class="mt-12 prose prose-rose dark:prose-invert w-full max-w-full">
+    <Content />
+  </article>
+</Layout>

@@ -82,5 +82,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), firefoxVariantPlugin],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
+    firefoxVariantPlugin,
+  ],
 };
