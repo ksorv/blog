@@ -57,5 +57,6 @@
     "@tailwindcss/typography": "^0.5.13",
     "@types/markdown-it": "^14.1.1",
     "@types/sanitize-html": "^2.11.0"
-  }
+  },
+  "packageManager": "pnpm@9.0.6+sha1.648f6014eb363abb36618f2ba59282a9eeb3e879"
 }
